@@ -1,38 +1,58 @@
 <script>
     import { onMount } from 'svelte';
-    import * as d3 from 'd3';
-
-    const yasmarina = `${base}/abu-dhabi.avif`;
-
-    function updateZoomLevel() {
+  
+    export let index;
+    let isVisible = false;
+    let zoomLevel;
+  
+    // This will run only on the client side
+    onMount(() => {
+      function updateZoomLevel() {
         const screenWidth = window.innerWidth;
         zoomLevel = screenWidth <= 600 ? 4 : 5.85; // adjust values as needed
-    }
-
-    function handleResize() {
+      }
+  
+      function handleResize() {
         updateZoomLevel();
-        map.setZoom(zoomLevel);
-    }
-
-    onMount(() => {
-        updateZoomLevel();
-        const svg = d3.select('#d3-container');
-        const width = +svg.style('width').replace('px', '');
-        const height = +svg.style('height').replace('px', '');
-        
-        svg.append('image')
-           .attr('xlink:href', yasmarina)
-           .attr('width', width)
-           .attr('height', height)
-           .attr('prserveAspectRatio', 'xMidYMid meet')
+        // Assuming 'map' is defined and used within your component
+        // You need to initialize and define 'map' properly for your use case
+        // map.setZoom(zoomLevel);
+      }
+  
+      // Attach event listener for resize events
+      window.addEventListener('resize', handleResize);
+  
+      // Initial update on mount
+      updateZoomLevel();
+  
+      // Cleanup function to remove the event listener
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
     });
-</script>
-
-<svg id='d3-container'></svg>
-<style>
+  
+    // Reactivity statement to update visibility based on index
+    $: isVisible = true;
+  </script>
+  
+  <!-- Conditional rendering for the image based on isVisible -->
+  {#if isVisible}
+    <img src="abu-dhabi.avif" alt="Yas Marina Circuit" />
+  {/if}
+  
+  <!-- Placeholder for your d3 container, visible regardless of index -->
+  <svg id='d3-container'></svg>
+  
+  <style>
+    /* Example CSS, adjust as needed */
     #d3-container {
-        width: 100%;
-        height: 100%;
-        background-color: #f0f0f0;
+      width: 100%;
+      height: 400px; /* Adjust based on your needs */
     }
-</style>
+  
+    img {
+      width: 100%; /* Ensure the image is responsive */
+      display: block; /* Adjust as needed */
+    }
+  </style>
+  

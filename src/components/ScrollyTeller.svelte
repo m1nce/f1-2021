@@ -8,10 +8,21 @@
 </script>
 
 <main>
-  <h1>Abu Dhabi 2021</h1>
+  <h1>F1 Abu Dhabi 2021 Grand Prix Controversy </h1>
 </main>
 
 <style>
+  section {
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0.2); /* 20% opaque */
+    /* color: white; */
+    outline: magenta solid 3px;
+    text-align: center;
+    max-width: 750px; /* adjust at will */
+    color: black;
+    padding: 1em;
+    margin: 0 0 2em 0;
+  }
   .background {
     width: 100%;
     height: 100vh;
@@ -26,23 +37,26 @@
     position: relative;
     outline: red solid 3px;
   }
-
   .progress-bars {
     position: absolute;
     background: rgba(170, 51, 120, 0.2);
     visibility: visible;
   }
-
-  section {
-    height: 80vh;
-    background-color: rgba(0, 0, 0, 0.2); /* 20% opaque */
-    /* color: white; */
-    outline: magenta solid 3px;
+  @font-face {
+    font-family: 'Formula1-Bold';
+    src: url('Formula1-Bold.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Formula1-Regular';
+     src: url('Formula1-Regular.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Formula1-Wide';
+    src: url('Formula1-Wide.otf') format('opentype');
+  }
+  h1 {
     text-align: center;
-    max-width: 750px; /* adjust at will */
-    color: black;
-    padding: 1em;
-    margin: 0 0 2em 0;
+    font-family: 'Formula1-Bold';
   }
 </style>
 
@@ -62,6 +76,7 @@
     bind:clientWidth={width}
     bind:clientHeight={height}
   >
+  <Map {index}/>
     <div class='progress-bars'>
       <p>current section: <strong>{index + 1}/{count}</strong></p>
       <progress value={count ? (index + 1) / count : 0} />
