@@ -19,12 +19,31 @@
     outline: green solid 3px;
   }
 
+  .foreground {
+    width: 50%;
+    margin: 0 auto;
+    height: auto;
+    position: relative;
+    outline: red solid 3px;
+  }
+
   .progress-bars {
     position: absolute;
     background: rgba(170, 51, 120, 0.2);
     visibility: visible;
   }
 
+  section {
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0.2); /* 20% opaque */
+    /* color: white; */
+    outline: magenta solid 3px;
+    text-align: center;
+    max-width: 750px; /* adjust at will */
+    color: black;
+    padding: 1em;
+    margin: 0 0 2em 0;
+  }
 </style>
 
 <Scroller 
@@ -55,5 +74,11 @@
     </div>
   </div>
 
+  <div class='foreground' slot='foreground'>
+    <section>This is the first section.</section>
+    <section>This is the second section.</section>
+    <section>This is the third section.</section>
+    <section>This is the fourth section.</section>
+  </div>
 </Scroller>
 
