@@ -43,16 +43,34 @@
   <!-- Placeholder for your d3 container, visible regardless of index -->
   <svg id='d3-container'></svg>
   
-  <style>
+<!-- Conditional rendering for the image based on isVisible -->
+<img src="abu-dhabi.avif" alt="Yas Marina Circuit" class:visible={isVisible}/>
+
+<!-- Placeholder for your d3 container, visible regardless of index -->
+<svg id='d3-container'></svg>
+
+<style>
     /* Example CSS, adjust as needed */
     #d3-container {
-      width: 100%;
-      height: 400px; /* Adjust based on your needs */
+        width: 100%;
+        height: 100%; /* Adjust based on your needs */
     }
-  
+
     img {
-      width: 100%; /* Ensure the image is responsive */
-      display: block; /* Adjust as needed */
+        width: 75%; /* Ensure the image is responsive */
+        display: block; /* Adjust as needed */
+        position: absolute;
+        align-items: center;
+        left: 12.5%;
+        top: 12.5%;
+        transition: opacity 2s, visibility 2s;
     }
-  </style>
-  
+
+    .visible {
+        display: block;
+    }
+
+    img:not(.visible) {
+        display: none;
+    }
+</style>
