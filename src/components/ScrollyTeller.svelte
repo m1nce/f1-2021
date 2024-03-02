@@ -3,9 +3,19 @@
   import { base } from '$app/paths';
   import Map from './Map.svelte'
   import Graph from './Graph.svelte'
-
+  import { onMount } from 'svelte';
   let count, index, offset, progress;
   let width, height;
+    onMount(() => {
+      const style = document.createElement('style');
+      style.textContent = `
+        @font-face {
+          font-family: 'Formula1-Bold';
+          src: url('${base}/Formula1-Bold.otf') format('opentype');
+        }
+      `;
+      document.head.appendChild(style);
+    });
 </script>
 
 <main>
@@ -43,10 +53,7 @@
     background: rgba(170, 51, 120, 0.2);
     visibility: visible;
   }
-  @font-face {
-    font-family: 'Formula1-Bold';
-    src: url('Formula1-Bold.otf') format('opentype');
-  }
+
   @font-face {
     font-family: 'Formula1-Regular';
      src: url('Formula1-Regular.otf') format('opentype');
