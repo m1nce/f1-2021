@@ -32,22 +32,15 @@
     });
   
     // Reactivity statement to update visibility based on index
-    $: isVisible = true;
-  </script>
-  
-  <!-- Conditional rendering for the image based on isVisible -->
-  {#if isVisible}
-    <img src="abu-dhabi.avif" alt="Yas Marina Circuit" />
-  {/if}
-  
-  <!-- Placeholder for your d3 container, visible regardless of index -->
-  <svg id='d3-container'></svg>
+    $: if (index > 0) {
+        isVisible = true;
+    } else {
+        isVisible = false;
+    }
+</script>
   
 <!-- Conditional rendering for the image based on isVisible -->
 <img src="abu-dhabi.avif" alt="Yas Marina Circuit" class:visible={isVisible}/>
-
-<!-- Placeholder for your d3 container, visible regardless of index -->
-<svg id='d3-container'></svg>
 
 <style>
     /* Example CSS, adjust as needed */
@@ -57,12 +50,12 @@
     }
 
     img {
-        width: 75%; /* Ensure the image is responsive */
+        width: 62.5%; /* Ensure the image is responsive */
         display: block; /* Adjust as needed */
         position: absolute;
         align-items: center;
-        left: 12.5%;
-        top: 12.5%;
+        left: 18.75%;
+        top: 18.75%;
         transition: opacity 2s, visibility 2s;
     }
 

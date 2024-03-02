@@ -18,7 +18,7 @@
     /* color: white; */
     outline: magenta solid 3px;
     text-align: center;
-    max-width: 750px; /* adjust at will */
+    max-width: 1400px; /* adjust at will */
     color: black;
     padding: 1em;
     margin: 0 0 2em 0;
@@ -31,8 +31,8 @@
   }
 
   .foreground {
-    width: 50%;
-    margin: 0 auto;
+    width: 80%;
+    margin: auto;
     height: auto;
     position: relative;
     outline: red solid 3px;
