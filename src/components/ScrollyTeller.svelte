@@ -1,5 +1,6 @@
 <script>
   import Scroller from '@sveltejs/svelte-scroller';
+  import { base } from '$app/paths';
   import Map from './Map.svelte'
   import Graph from './Graph.svelte'
 
@@ -14,7 +15,7 @@
 <style>
   section {
     height: 80vh;
-    background-color: rgba(0, 0, 0, 0.2); /* 20% opaque */
+    background-color: rgba(0, 0, 0, 0); /* 20% opaque */
     /* color: white; */
     outline: magenta solid 3px;
     text-align: center;
@@ -89,7 +90,7 @@
   </div>
 
   <div class='foreground' slot='foreground'>
-    <section>This is the first section.</section>
+    <section>This is the first section</section>
     <section>This is the second section.</section>
     <section>This is the third section.</section>
     <section>This is the fourth section.</section>
