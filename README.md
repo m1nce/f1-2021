@@ -1,4 +1,4 @@
-<h1>🚧🚧 THIS PROJECT IS STILL UNDER CONSTRUCTION! 🚧🚧</h1>
+<h1>🚧 THIS PROJECT IS STILL UNDER CONSTRUCTION! 🚧</h1>
 
 <h1>
   <a href='https://m1nce.github.io/f1-2021/'>
