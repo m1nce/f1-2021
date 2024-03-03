@@ -61,6 +61,16 @@
   </script>
   
   <style>
+    @font-face {
+        font-family: 'Formula1-Regular';
+        src: url('Formula1-Regular.otf') format('opentype');
+    }
+    
+    @font-face {
+        font-family: 'Formula1-Wide';
+        src: url('Formula1-Wide.otf') format('opentype');
+    }
+
     h {
         display: block;
         position: absolute;
