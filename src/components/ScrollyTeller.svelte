@@ -1,22 +1,25 @@
 <script>
   import Scroller from '@sveltejs/svelte-scroller';
   import { base } from '$app/paths';
+  import F1 from './F1.svelte'
+  import Text from './Text.svelte'
   import Map from './Map.svelte'
   import Graph from './Graph.svelte'
-  import F1 from './F1.svelte'
   import { onMount } from 'svelte';
+  
   let count, index, offset, progress;
   let width, height;
-    onMount(() => {
-      const style = document.createElement('style');
-      style.textContent = `
-        @font-face {
-          font-family: 'Formula1-Bold';
-          src: url('${base}/Formula1-Bold.otf') format('opentype');
-        }
-      `;
-      document.head.appendChild(style);
-    });
+
+  onMount(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @font-face {
+        font-family: 'Formula1-Bold';
+        src: url('${base}/Formula1-Bold.otf') format('opentype');
+      }
+    `;
+    document.head.appendChild(style);
+  });
 </script>
 
 <main>
@@ -86,6 +89,7 @@
   >
     <Map {index}/>
     <F1 {index}/>
+    <Text {index}/>
 
     <div class='progress-bars'>
       <p>current section: <strong>{index + 1}/{count}</strong></p>
@@ -100,10 +104,11 @@
   </div>
 
   <div class='foreground' slot='foreground'>
-    <section>This is the first section</section>
-    <section>This is the second section.</section>
+    <section></section>
+    <section></section>
     <section>This is the third section.</section>
     <section>This is the fourth section.</section>
+    <section></section>
   </div>
 </Scroller>
 
