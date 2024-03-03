@@ -32,7 +32,8 @@
     });
   
     // Reactivity for visibility based on index
-    $: if (index > 5) {
+    // !! CHANGE WHEN NEED CIRCUIT MAP!!
+    $: if (index > 100) {
         isVisible = true;
     } else {
         isVisible = false;
