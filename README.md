@@ -37,7 +37,7 @@ Before you begin, ensure you have the following installed:
  ```
 4. **Start Webhost**
  ```bash
- npm run dev
+ npm run dev -- --open
  ```
 
 <!-- LANGUAGES/FRAMEWORKS -->
