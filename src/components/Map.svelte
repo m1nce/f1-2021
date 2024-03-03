@@ -32,7 +32,7 @@
     });
   
     // Reactivity for visibility based on index
-    $: if (index > 3) {
+    $: if (index > 5) {
         isVisible = true;
     } else {
         isVisible = false;

@@ -45,19 +45,11 @@
   });
   
     // Reactivity for visibility based on index
-    let h1 = false;
-    let s1 = false;
-    $: if (index > 0) {
-        h1 = true;
-    } else {
-        h1 = false;
-    }
-
-    $: if (index > 1) {
-        s1 = true;
-    } else {
-        s1 = false;
-    }
+    $: h1 = index > 0;
+    $: s1 = index > 1;
+    $: p1 = index > 2;
+    $: img1 = index == 3;
+    $: p2 = index > 3;
   </script>
   
   <style>
@@ -65,7 +57,7 @@
         font-family: 'Formula1-Regular';
         src: url('Formula1-Regular.otf') format('opentype');
     }
-    
+
     @font-face {
         font-family: 'Formula1-Wide';
         src: url('Formula1-Wide.otf') format('opentype');
@@ -98,6 +90,45 @@
         font-size: 20px;
         font-family: 'Formula1-Regular'
     }
+
+    .paragraph1 {
+        display: block;
+        position: absolute;
+        top: 32.5%; /* Center vertically */
+        left: 20%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Offset by half of the width and height */
+        width: auto; /* Adjust width as needed */
+        height: auto; /* Maintains aspect ratio */
+        transition: opacity 2s;
+        text-align: center; /* Center text horizontally within the element */
+        font-size: 20px;
+        font-family: 'Formula1-Regular'
+    }
+
+    .paragraph2 {
+        display: block;
+        position: absolute;
+        top: 40%; /* Center vertically */
+        left: 20%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Offset by half of the width and height */
+        width: auto; /* Adjust width as needed */
+        height: auto; /* Maintains aspect ratio */
+        transition: opacity 2s;
+        text-align: center; /* Center text horizontally within the element */
+        font-size: 20px;
+        font-family: 'Formula1-Regular'
+    }
+
+    .right-img {
+        display: block;
+        position: absolute;
+        top: 40%;
+        left: 80%;
+        transform: translate(-50%, -50%); /* Offset by half of the width and height */
+        width: 30%; /* Adjust width as needed */
+        height: auto; /* Maintains aspect ratio */
+        transition: opacity 2s;
+    }
   </style>
   
 {#if h1}
@@ -108,6 +139,22 @@
 
 {#if s1}
     <p class='subtitle1' in:fade={{ duration: 200 }} out:fade={{ duration: 100 }}>
-        Formula 1 is the highest class of international racing:
+        Formula 1 is the highest class of international racing: 
+    </p>
+{/if}
+
+{#if p1}
+    <p class='paragraph1' in:fade={{ duration: 600}} out:fade={{ duration: 100 }}>
+        &#x2022; Open Wheel
+    </p>
+{/if}
+
+{#if img1}
+    <img src="openwheel.jpg" alt="open wheel car" class="right-img" in:fade={{ duration: 600}} out:fade={{ duration: 100 }}>
+{/if}
+
+{#if p2}
+    <p class='paragraph2' in:fade={{ duration: 600}} out:fade={{ duration: 100 }}>
+        &#x2022; Single Seater
     </p>
 {/if}

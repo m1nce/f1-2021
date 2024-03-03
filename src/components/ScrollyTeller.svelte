@@ -99,8 +99,11 @@
   <div class='foreground' slot='foreground'>
     <section></section>
     <section></section>
-    <section>This is the third section.</section>
-    <section>This is the fourth section.</section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
     <section></section>
   </div>
 </Scroller>
