@@ -10,8 +10,8 @@
         const style = document.createElement('style');
         style.textContent = `
         @font-face {
-            font-family: 'Formula1-Bold';
-            src: url('${base}/Formula1-Bold.otf') format('opentype');
+            font-family: 'Formula1-Regular';
+            src: url('${base}/Formula1-Regular.otf') format('opentype');
         }
         `;
         document.head.appendChild(style);
