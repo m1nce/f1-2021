@@ -3,6 +3,7 @@
   import { base } from '$app/paths';
   import Map from './Map.svelte'
   import Graph from './Graph.svelte'
+  import F1 from './F1.svelte'
   import { onMount } from 'svelte';
   let count, index, offset, progress;
   let width, height;
@@ -84,6 +85,8 @@
     bind:clientHeight={height}
   >
     <Map {index}/>
+    <F1 {index}/>
+
     <div class='progress-bars'>
       <p>current section: <strong>{index + 1}/{count}</strong></p>
       <progress value={count ? (index + 1) / count : 0} />

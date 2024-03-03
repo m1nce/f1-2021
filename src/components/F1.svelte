@@ -3,8 +3,6 @@
     import { base } from '$app/paths';
     import { fade } from 'svelte/transition';
     export let index;
-    let isVisible = false;
-    let LogoisVisible = true;
     let zoomLevel;
   
     onMount(() => {
@@ -33,8 +31,12 @@
     });
   
     // Reactivity for visibility based on index
-    $: isVisible = index > 0;
-    $: LogoisVisible = index == 0;
+    let logo = true;
+    $: if (index > 0) {
+        logo = false;
+    } else {
+        logo = true;
+    }
   </script>
   
   <style>
@@ -50,19 +52,27 @@
     .absolute-center {
       position: absolute;
       left: 50%;
-      top: 50%;
+      top: 45%;
       transform: translate(-50%, -50%);
-    }
-  
-    .fade {
-      opacity: 0;
-      transition: opacity 2s ease-in-out;
     }
   
     .fade-in {
       opacity: 1;
     }
+
+    .smaller {
+        position: absolute; /* Position absolutely within a relative container */
+        left: 10%; /* Align to the left */
+        top: 5%; /* Align to the top */
+        width: 20%; /* Adjust as per your requirement */
+        height: auto; /* Maintains aspect ratio */
+        transition: all 2s ease; /* Smooth transition for all properties */
+    }
   </style>
-{#if LogoisVisible}
+
+{#if logo}
     <img src={`${base}/F1.svg.png`} alt="F1 Logo" class="center absolute-center fade-in" in:fade={{ duration: 1000 }}/>
+{/if}
+{#if !logo}
+    <img src={`${base}/F1.svg.png`} alt="F1 Logo" class="smaller absolute-center fade-in" in:fade={{ duration: 1000 }}/>
 {/if}

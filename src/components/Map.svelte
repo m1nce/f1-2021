@@ -33,14 +33,15 @@
     });
   
     // Reactivity for visibility based on index
-    $: isVisible = index > 0;
-    $: LogoisVisible = index == 0;
+    $: isVisible = index > 1;
   </script>
   
   <style>
     .center {
       display: block;
-      margin-left: auto;
+      position: absolute;
+      margin-top: 12.5%;
+      margin-left: 25%;
       margin-right: auto;
       width: 50%; /* Adjust as per your requirement */
       height: auto; /* Maintains aspect ratio */
@@ -50,22 +51,7 @@
     .fade-in {
       opacity: 1;
     }
-    .smaller {
-        position: absolute; /* Position absolutely within a relative container */
-        left: 10; /* Align to the left */
-        top: 0; /* Align to the top */
-        width: 20%; /* Adjust as per your requirement */
-        height: auto; /* Maintains aspect ratio */
-        transition: all 2s ease; /* Smooth transition for all properties */
-    }
-
   </style>
 {#if isVisible}
-    <img src="abu-dhabi.avif" alt="Yas Marina Circuit" class="center fade-in" in:fade={{ duration: 1000 }}/>
-{/if}
-{#if LogoisVisible}
-    <img src={`${base}/F1.svg.png`} alt="F1 Logo" class="center absolute-center fade-in" in:fade={{ duration: 1000 }}/>
-{/if}
-{#if isVisible}
-    <img src={`${base}/F1.svg.png`} alt="F1 Logo" class="smaller absolute-center fade-in" in:fade={{ duration: 1000 }}/>
+    <img src="abu-dhabi.png" alt="Yas Marina Circuit" class="center fade-in" in:fade={{ duration: 1000 }}/>
 {/if}
