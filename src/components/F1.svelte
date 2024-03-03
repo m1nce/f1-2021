@@ -66,13 +66,8 @@
         top: 5%; /* Align to the top */
         width: 20%; /* Adjust as per your requirement */
         height: auto; /* Maintains aspect ratio */
-        transition: all 2s ease; /* Smooth transition for all properties */
+        transition: all 0.5s ease; /* Smooth transition for all properties */
     }
   </style>
 
-{#if logo}
-    <img src={`${base}/F1.svg.png`} alt="F1 Logo" class="center absolute-center fade-in" in:fade={{ duration: 1000 }}/>
-{/if}
-{#if !logo}
-    <img src={`${base}/F1.svg.png`} alt="F1 Logo" class="smaller absolute-center fade-in" in:fade={{ duration: 1000 }}/>
-{/if}
+<img src={`${base}/F1.svg.png`} alt="F1 Logo" class="{logo ? 'center' : 'smaller'} absolute-center fade-in" in:fade={{ duration: 1000 }}/>
