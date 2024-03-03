@@ -6,7 +6,7 @@
   import Map from './Map.svelte'
   import Graph from './Graph.svelte'
   import { onMount } from 'svelte';
-  
+
   let count, index, offset, progress;
   let width, height;
 
@@ -21,10 +21,6 @@
     document.head.appendChild(style);
   });
 </script>
-
-<main>
-  <h1>F1 Abu Dhabi 2021 Grand Prix Controversy </h1>
-</main>
 
 <style>
   section {
