@@ -24,12 +24,12 @@ Before you begin, ensure you have the following installed:
 ### Installation
 1. **Clone the Repository**
   ```bash
-  git clone https://github.com/m1nce/nba-shots.git
+  git clone https://github.com/m1nce/f1-2021.git
   ```
 
 2. **Navigate to the Project Directory**
  ```bash
- cd nba-shots
+ cd f1-2021
  ```
 3. **Install npm Packages**
  ```bash
