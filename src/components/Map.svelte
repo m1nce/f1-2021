@@ -45,7 +45,7 @@
     .center {
         display: block;
         position: absolute;
-        margin-top: 12.5%;
+        top: 20%;
         margin-left: 25%;
         margin-right: auto;
         width: 50%; /* Adjust as per your requirement */

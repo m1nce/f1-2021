@@ -65,14 +65,14 @@
     .description {
         display: block;
         position: absolute;
-        top: 15%; /* Center vertically */
+        top: 17.5%; /* Center vertically */
         left: 50%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: 70%; /* Adjust width as needed */
         height: auto; /* Maintains aspect ratio */
         transition: opacity 2s;
         text-align: center; /* Center text horizontally within the element */
-        font-size: 20px;
+        font-size: 2.5vh;
         font-family: 'Formula1-Regular'
     }
 </style>
