@@ -65,8 +65,10 @@
     $: s12 = index == 19;
     $: s13 = index == 20;
     $: s14 = index == 21;
-    $: s15 = index == 22;
-    $: h2 = index > 22 && index < 30;
+    $: s15 = index == 22 || index == 23;
+    $: s16 = index == 23;
+    $: h2 = index > 23 && index < 30;
+    $: s17 = index == 24;
   </script>
   
   <style>
@@ -208,13 +210,27 @@
     .safety-car {
         display: block;
         position: absolute;
-        top: 40%;
-        left: 80%;
+        top: 5%;
+        left: 50%;
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
-        width: 30%; /* Adjust width as needed */
+        width: 70%; /* Adjust width as needed */
         height: auto; /* Maintains aspect ratio */
         transition: opacity 2s;
-        background-color: #FFFB98;
+        background-color: transparent;
+    }
+
+    .h2 {
+        display: block;
+        position: absolute;
+        top: 18%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Offset by half of the width and height */
+        width: auto; /* Adjust width as needed */
+        height: auto; /* Maintains aspect ratio */
+        transition: opacity 2s;
+        text-align: center; /* Center text horizontally within the element */
+        font-size: 36px;
+        font-family: 'Formula1-Bold'
     }
   </style>
   
@@ -363,9 +379,15 @@
     </p>
 {/if}
 
+{#if s16}
+    <p class='description' style='top: 77.5%' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
+        But what is a safety car?
+    </p>
+{/if}
+
 {#if h2}
     <img src="safety-car.png" alt="safety car" class="safety-car" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
-    <h in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+    <h class='h2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
         What is a safety car?
     </h>
 {/if}

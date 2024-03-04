@@ -21,7 +21,7 @@
     document.head.appendChild(style);
   });
 
-  $: isYellowBackground = index > 22;
+  $: isYellowBackground = index > 23;
 </script>
 
 <style>

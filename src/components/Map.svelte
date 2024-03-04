@@ -35,7 +35,7 @@
     // !! CHANGE WHEN NEED CIRCUIT MAP!!
     $: if (index == 15) {
         isVisible = true;
-    } else if (index > 17 && index < 23) {
+    } else if (index > 17 && index < 24) {
         isVisible = true;
     } else {
         isVisible = false;
