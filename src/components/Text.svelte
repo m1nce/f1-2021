@@ -45,7 +45,7 @@
   });
   
     // Reactivity for visibility based on index
-    $: h1 = index > 0;
+    $: h1 = index > 0 && index < 9;
     $: s1 = index > 1 && index < 5;
     $: p1 = index > 2 && index < 5;
     $: img1 = index == 3 || index == 4;
@@ -53,6 +53,7 @@
     $: s2 = index == 5;
     $: s3 = index == 6 || index == 7;
     $: s4 = index == 7;
+    $: s5 = index == 8;
   </script>
   
   <style>
@@ -194,7 +195,7 @@
     <p class='subtitle2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
         It consists of a season, which is a series of races, also known as Grand Prix. 
     </p>
-    <img src="2021calendar.jpeg" alt="calendar" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+    <img src="2021calendar.jpeg" alt="calendar" class="right-img" style="width: 30%;" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
 {/if}
 
 {#if s3}
@@ -202,11 +203,21 @@
         In a season, a number of teams and drivers compete, 
         with each team typically having two drivers race for them.
     </p>
-    <img src="drivers.jpeg" alt="calendar" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+    <img src="drivers.jpeg" alt="calendar" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 1 }}>
 {/if}
 
 {#if s4}
     <p class='subtitle3' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
         At the end of a season, there are two winners - a driver and a team - dependent on a points system.
     </p>
+    <img src="podium.avif" alt="calendar" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
 {/if}
+
+{#if s5}
+    <p class='subtitle2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+        Each Grand Prix gives a certain number of points to drivers and their team, 
+        depending on where they finished from positions 1-10.
+    </p>
+    <img src="championship_points.jpg" alt="calendar" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+{/if}
+

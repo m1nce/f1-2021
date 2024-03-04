@@ -6,6 +6,15 @@
     let zoomLevel;
   
     onMount(() => {
+        const style = document.createElement('style');
+        style.textContent = `
+        @font-face {
+            font-family: 'Formula1-Bold';
+            src: url('${base}/Formula1-Bold.otf') format('opentype');
+        }
+        `;
+        document.head.appendChild(style);
+
         function updateZoomLevel() {
             const screenWidth = window.innerWidth;
             zoomLevel = screenWidth <= 600 ? 4 : 5.85; // Adjust values as needed
@@ -31,12 +40,8 @@
     });
   
     // Reactivity for visibility based on index
-    let logo = true;
-    $: if (index > 0) {
-        logo = false;
-    } else {
-        logo = true;
-    }
+    $: logo = index == 0 || index == 9 || index == 10;
+    $: yearAnimation = index == 10;
   </script>
   
   <style>
@@ -46,7 +51,7 @@
         margin-right: auto;
         width: 50%; /* Adjust as per your requirement */
         height: auto; /* Maintains aspect ratio */
-        transition: opacity 2s;
+        transition: all 0.5s ease; /* Smooth transition for all properties */
     }
   
     .absolute-center {
@@ -68,6 +73,31 @@
         height: auto; /* Maintains aspect ratio */
         transition: all 0.5s ease; /* Smooth transition for all properties */
     }
+
+    .year {
+        position: absolute;
+        font-family: 'Formula1-Bold';
+        font-size: 80px;
+        color: red;
+        top: 55%;
+        left: 70%;
+        transition: transform 0.5s ease, font-size 0.5s ease, top 0.5s ease, left 0.5s ease; /* Adjust transition properties as needed */
+    }
+
+    .yearsmaller {
+        position: absolute; /* Position absolutely within a relative container */
+        left: 18%; /* Align to the left */
+        top: 9%; /* Align to the top */
+        transition: all 0.5s ease; /* Smooth transition for all properties */
+        color: red;
+        font-family: 'Formula1-Bold';
+        font-size: 16px;
+    }
   </style>
 
-<img src={`${base}/F1.svg.png`} alt="F1 Logo" class="{logo ? 'center' : 'smaller'} absolute-center fade-in" in:fade={{ duration: 1000 }}/>
+<img src={`${base}/F1.svg.png`} alt="F1 Logo" class="{logo ? 'center' : 'smaller'} absolute-center fade-in" in:fade={{ duration: 1000 }} out:fade={{ duration: 1000 }}/>
+{#if index >= 10}
+    <h class='{yearAnimation ? 'year' : 'yearsmaller'}' in:fade={{ duration: 800 }}>
+            2021
+    </h>
+{/if}
