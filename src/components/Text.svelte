@@ -260,7 +260,7 @@
 {/if}
 
 {#if s6}
-    <p class='subtitle1' style='left: 30%; width: 45%' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+    <p class='subtitle1' style='left: 30%; width: 45%' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
         In the last race of the 2021 Formula 1 season, there were two storylines:
     </p>
 {/if}

@@ -83,6 +83,7 @@
     <Map {index}/>
     <F1 {index}/>
     <Text {index}/>
+    <Graph {index}/>
 
     <div class='progress-bars'>
       <p>current section: <strong>{index + 1}/{count}</strong></p>

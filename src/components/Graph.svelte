@@ -1,5 +1,4 @@
 <script>
-    // !! ADD SVG ELEMENTS TO THE MAP IN THIS FILE !!
-
+    // NEED HELP WITH ANIMATION
     import { onMount } from 'svelte';
 </script>
