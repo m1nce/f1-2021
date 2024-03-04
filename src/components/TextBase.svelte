@@ -1,9 +1,9 @@
 <script>
     export let index;
-    import Section1 from './text/Section1.svelte';
-    import Section2 from './text/Section2.svelte';
-    import Section3 from './text/Section3.svelte';
-    import Section4 from './text/Section4.svelte';
+    import Section1 from './Section1.svelte';
+    import Section2 from './Section2.svelte';
+    import Section3 from './Section3.svelte';
+    import Section4 from './Section4.svelte';
 </script>
 
 <!-- So what is Formula 1? -->
