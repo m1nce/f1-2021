@@ -62,6 +62,10 @@
     $: s9 = index == 16;
     $: s10 = index == 17;
     $: s11 = index == 18;
+    $: s12 = index == 19;
+    $: s13 = index == 20;
+    $: s14 = index == 21;
+    $: s15 = index == 22;
   </script>
   
   <style>
@@ -314,5 +318,34 @@
     <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
         However, at the start of the race, Hamilton got a better start than Verstappen, 
         leading to Hamilton taking the lead instead of Verstappen.
+    </p>
+{/if}
+
+{#if s12}
+    <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
+        Max Verstappen pits for newer tyres, as each driver is mandated to have 
+        at least one pit stop in a race.
+    </p>
+{/if}
+
+{#if s13}
+    <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
+        Mercedes responds by pitting Hamilton, to ensure he doesn't lose lap times 
+        by staying on old tyres that are losing grip. Verstappen's teammate, 
+        Sergio Perez, takes 1<sup>st</sup> place.
+    </p>
+{/if}
+
+{#if s14}
+    <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
+        Hamilton finally passes Perez after a lengthy one-and-a-half lap tussle. 
+        However, Perez played the ultimate team game: defending long enough to bring 
+        Verstappen back into the race.
+    </p>
+{/if}
+
+{#if s15}
+    <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
+        Nicholas Latifi (dubbed Crashtifi by F1 fans) crashes into the barriers and prompts a safety car.
     </p>
 {/if}

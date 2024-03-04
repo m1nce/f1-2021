@@ -20,6 +20,8 @@
     `;
     document.head.appendChild(style);
   });
+
+  $: isYellowBackground = index > 22;
 </script>
 
 <style>
@@ -34,11 +36,17 @@
     padding: 1em;
     margin: 0 0 2em 0;
   }
+
   .background {
     width: 100%;
     height: 100vh;
     position: relative;
     outline: green solid 3px;
+    transition: background-color 1s ease;
+  }
+
+  .yellow-background {
+    background-color: #FFFB98;
   }
 
   .foreground {
@@ -48,6 +56,7 @@
     position: relative;
     outline: red solid 3px;
   }
+
   .progress-bars {
     position: absolute;
     background: rgba(170, 51, 120, 0.2);
@@ -75,7 +84,7 @@
   bind:progress
 >
   <div
-    class='background'
+    class='background {isYellowBackground ? 'yellow-background' : ''}'
     slot='background'
     bind:clientWidth={width}
     bind:clientHeight={height}
@@ -120,6 +129,11 @@
     <section></section>
     <section></section>
     <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
   </div>
 </Scroller>
-

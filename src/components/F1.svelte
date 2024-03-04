@@ -52,6 +52,7 @@
         width: 50%; /* Adjust as per your requirement */
         height: auto; /* Maintains aspect ratio */
         transition: all 0.5s ease; /* Smooth transition for all properties */
+        background-color: transparent;
     }
   
     .absolute-center {
@@ -60,6 +61,7 @@
         top: 45%;
         transform: translate(-50%, -50%);
         background-color: #fff; /* Or any color that fits the page's design */
+        background-color: transparent;
     }
   
     .fade-in {
@@ -73,6 +75,7 @@
         width: 20%; /* Adjust as per your requirement */
         height: auto; /* Maintains aspect ratio */
         transition: all 0.5s ease; /* Smooth transition for all properties */
+        background-color: transparent;
     }
 
     .year {
@@ -98,7 +101,7 @@
 
 <img src={`${base}/F1.svg.png`} alt="F1 Logo" class="{logo ? 'center' : 'smaller'} absolute-center fade-in" in:fade={{ duration: 1000 }} out:fade={{ duration: 1000 }}/>
 {#if index >= 10}
-    <h class='{yearAnimation ? 'year' : 'yearsmaller'}' in:fade={{ duration: 800 }} out:fade={{ duration: 400 }}>
+    <h class='{yearAnimation ? 'year' : 'yearsmaller'}' in:fade={{ duration: 800 }} out:fade={{ duration: 100 }}>
             2021
     </h>
 {/if}
