@@ -6,20 +6,10 @@
   import Map from './Map.svelte'
   import Graph from './Graph.svelte'
   import { onMount } from 'svelte';
+  import '../styles.css';
 
   let count, index, offset, progress;
   let width, height;
-
-  onMount(() => {
-    const style = document.createElement('style');
-    style.textContent = `
-      @font-face {
-        font-family: 'Formula1-Bold';
-        src: url('${base}/Formula1-Bold.otf') format('opentype');
-      }
-    `;
-    document.head.appendChild(style);
-  });
 
   $: isYellowBackground = index > 23;
 </script>

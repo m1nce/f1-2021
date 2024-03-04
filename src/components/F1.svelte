@@ -6,15 +6,6 @@
     let zoomLevel;
   
     onMount(() => {
-        const style = document.createElement('style');
-        style.textContent = `
-        @font-face {
-            font-family: 'Formula1-Bold';
-            src: url('${base}/Formula1-Bold.otf') format('opentype');
-        }
-        `;
-        document.head.appendChild(style);
-
         function updateZoomLevel() {
             const screenWidth = window.innerWidth;
             zoomLevel = screenWidth <= 600 ? 4 : 5.85; // Adjust values as needed
