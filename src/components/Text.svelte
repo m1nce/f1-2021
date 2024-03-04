@@ -54,6 +54,11 @@
     $: s3 = index == 6 || index == 7;
     $: s4 = index == 7;
     $: s5 = index == 8;
+    $: s6 = index > 10 && index < 15;
+    $: p3 = index > 11 && index < 15;
+    $: p4 = index > 12 && index < 15;
+    $: s7 = index == 14;
+    $: s8 = index == 15;
   </script>
   
   <style>
@@ -161,6 +166,21 @@
         font-size: 20px;
         font-family: 'Formula1-Regular'
     }
+
+    .yasmarina {
+        display: block;
+        position: absolute;
+        top: 40%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Offset by half of the width and height */
+        width: 60%; /* Adjust width as needed */
+        height: auto; /* Maintains aspect ratio */
+        transition: opacity 2s;
+        text-align: center; /* Center text horizontally within the element */
+        font-size: 100px;
+        font-family: 'Formula1-Bold';
+        color: red;
+    }
   </style>
   
 {#if h1}
@@ -203,14 +223,14 @@
         In a season, a number of teams and drivers compete, 
         with each team typically having two drivers race for them.
     </p>
-    <img src="drivers.jpeg" alt="calendar" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 1 }}>
+    <img src="drivers.jpeg" alt="drivers" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 1 }}>
 {/if}
 
 {#if s4}
     <p class='subtitle3' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
         At the end of a season, there are two winners - a driver and a team - dependent on a points system.
     </p>
-    <img src="podium.avif" alt="calendar" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+    <img src="podium.avif" alt="podium" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
 {/if}
 
 {#if s5}
@@ -218,6 +238,39 @@
         Each Grand Prix gives a certain number of points to drivers and their team, 
         depending on where they finished from positions 1-10.
     </p>
-    <img src="championship_points.jpg" alt="calendar" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+    <img src="championship_points.jpg" alt="championship pts" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
 {/if}
 
+{#if s6}
+    <p class='subtitle1' style='left: 30%; width: 45%' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+        In the last race of the 2021 Formula 1 season, there were two storylines:
+    </p>
+{/if}
+
+{#if p3}
+    <p class='paragraph1' style='left:30%' in:fade={{ duration: 200 }} out:fade={{ duration: 100 }}>
+        &#x2022; Max Verstappen's 1<sup>st</sup> championship
+    </p>
+    <img src="mv33.webp" alt="max verstappen" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 1 }}>
+{/if}
+
+{#if p4}
+    <p class='paragraph2' style='left:30%' in:fade={{ duration: 200 }} out:fade={{ duration: 100 }}>
+        &#x2022; Lewis Hamilton's 8<sup>th</sup> championship
+    </p>
+    <img src="lh44.jpeg" alt="lewis hamilton" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 1 }}>
+{/if}
+
+{#if s7}
+    <p class='subtitle3' style='top: 55%; width: 45%' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+        And almost by fate itself, the two drivers had the same number of 
+        points entering the last race of the season at Abu Dhabi's...
+    </p>
+    <img src="2021points.png" alt="points after saudi gp" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+{/if}
+
+{#if s8}
+    <p class='yasmarina' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
+        YAS MARINA CIRCUIT
+    </p>
+{/if}

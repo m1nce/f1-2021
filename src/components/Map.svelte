@@ -33,7 +33,7 @@
   
     // Reactivity for visibility based on index
     // !! CHANGE WHEN NEED CIRCUIT MAP!!
-    $: if (index > 100) {
+    $: if (index == 15) {
         isVisible = true;
     } else {
         isVisible = false;
@@ -58,5 +58,5 @@
   </style>
 
 {#if isVisible}
-    <img src="abu-dhabi.png" alt="Yas Marina Circuit" class="center fade-in" in:fade={{ duration: 1000 }}/>
+    <img src="abu-dhabi.png" alt="Yas Marina Circuit" class="center fade-in" in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}/>
 {/if}
