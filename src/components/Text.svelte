@@ -1,10 +1,21 @@
 <script>
     import { onMount } from 'svelte';
+    import { base } from '$app/paths';
     import { fade } from 'svelte/transition';
     export let index;
     let zoomLevel;
   
     onMount(() => {
+        // Add text font
+        const style = document.createElement('style');
+        style.textContent = `
+        @font-face {
+            font-family: 'Formula1-Regular';
+            src: url('${base}/Formula1-Regular.otf') format('opentype');
+        }
+        `;
+        document.head.appendChild(style);
+
         function updateZoomLevel() {
             const screenWidth = window.innerWidth;
             zoomLevel = screenWidth <= 600 ? 4 : 5.85; // Adjust values as needed
@@ -61,6 +72,16 @@
   </script>
   
   <style>
+    @font-face {
+        font-family: 'Formula1-Regular';
+        src: url('Formula1-Regular.otf') format('opentype');
+    }
+
+    @font-face {
+        font-family: 'Formula1-Wide';
+        src: url('Formula1-Wide.otf') format('opentype');
+    }
+
     h {
         display: block;
         position: absolute;
