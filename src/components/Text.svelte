@@ -66,6 +66,7 @@
     $: s13 = index == 20;
     $: s14 = index == 21;
     $: s15 = index == 22;
+    $: h2 = index > 22 && index < 30;
   </script>
   
   <style>
@@ -202,6 +203,18 @@
         text-align: center; /* Center text horizontally within the element */
         font-size: 20px;
         font-family: 'Formula1-Regular'
+    }
+
+    .safety-car {
+        display: block;
+        position: absolute;
+        top: 40%;
+        left: 80%;
+        transform: translate(-50%, -50%); /* Offset by half of the width and height */
+        width: 30%; /* Adjust width as needed */
+        height: auto; /* Maintains aspect ratio */
+        transition: opacity 2s;
+        background-color: #FFFB98;
     }
   </style>
   
@@ -348,4 +361,11 @@
     <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
         Nicholas Latifi (dubbed Crashtifi by F1 fans) crashes into the barriers and prompts a safety car.
     </p>
+{/if}
+
+{#if h2}
+    <img src="safety-car.png" alt="safety car" class="safety-car" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+    <h in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+        What is a safety car?
+    </h>
 {/if}

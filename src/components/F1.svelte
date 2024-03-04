@@ -60,7 +60,6 @@
         left: 50%;
         top: 45%;
         transform: translate(-50%, -50%);
-        background-color: #fff; /* Or any color that fits the page's design */
         background-color: transparent;
     }
   
