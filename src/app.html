@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-	<script>
-		import { base } from '$app/paths';
-		document.write(`<link rel="stylesheet" href="${base}/styles.css">`);
-	  </script>
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/f1pin.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%sveltekit.head%
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">%sveltekit.body%</div>
-	</body>
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="%sveltekit.assets%/f1pin.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	%sveltekit.head%
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body data-sveltekit-preload-data="hover">
+	<div style="display: contents">%sveltekit.body%</div>
+</body>
 </html>
