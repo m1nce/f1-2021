@@ -96,7 +96,7 @@
     <Map {index}/>
     <F1 {index}/>
     <TextBase {index}/>
-    <Graph {index}/>
+    <!-- <Graph {index}/> -->
 
     <div class='progress-bars'>
       <p>current section: <strong>{index + 1}/{count}</strong></p>
