@@ -1,6 +1,5 @@
 <script>
     import { onMount } from 'svelte';
-    import { base } from '$app/paths';
     import { fade } from 'svelte/transition';
     export let index;
     let isVisible = false;

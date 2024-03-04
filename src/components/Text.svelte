@@ -1,7 +1,6 @@
 <script>
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
-    import '../styles.css';
     export let index;
     let zoomLevel;
   

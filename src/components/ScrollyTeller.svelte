@@ -1,12 +1,10 @@
 <script>
   import Scroller from '@sveltejs/svelte-scroller';
-  import { base } from '$app/paths';
   import F1 from './F1.svelte'
   import Text from './Text.svelte'
   import Map from './Map.svelte'
   import Graph from './Graph.svelte'
   import { onMount } from 'svelte';
-  import '../styles.css';
 
   let count, index, offset, progress;
   let width, height;
