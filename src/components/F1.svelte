@@ -59,6 +59,7 @@
         left: 50%;
         top: 45%;
         transform: translate(-50%, -50%);
+        background-color: #fff; /* Or any color that fits the page's design */
     }
   
     .fade-in {
@@ -97,7 +98,7 @@
 
 <img src={`${base}/F1.svg.png`} alt="F1 Logo" class="{logo ? 'center' : 'smaller'} absolute-center fade-in" in:fade={{ duration: 1000 }} out:fade={{ duration: 1000 }}/>
 {#if index >= 10}
-    <h class='{yearAnimation ? 'year' : 'yearsmaller'}' in:fade={{ duration: 800 }}>
+    <h class='{yearAnimation ? 'year' : 'yearsmaller'}' in:fade={{ duration: 800 }} out:fade={{ duration: 400 }}>
             2021
     </h>
 {/if}

@@ -195,7 +195,7 @@
     <p class='subtitle2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
         It consists of a season, which is a series of races, also known as Grand Prix. 
     </p>
-    <img src="2021calendar.jpeg" alt="calendar" class="right-img" style="width: 30%;" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+    <img src="2021calendar.jpeg" alt="calendar" class="right-img" style="width: 25%;" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
 {/if}
 
 {#if s3}
