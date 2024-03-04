@@ -1,12 +1,16 @@
 <script>
+  // Essential imports
   import Scroller from '@sveltejs/svelte-scroller';
   import { base } from '$app/paths';
-  import F1 from './F1.svelte'
-  import Text from './Text.svelte'
-  import Map from './Map.svelte'
-  import Graph from './Graph.svelte'
   import { onMount } from 'svelte';
 
+  // Building blocks of ScrollyTeller
+  import F1 from './F1.svelte'
+  import TextBase from './TextBase.svelte'
+  import Map from './Map.svelte'
+  import Graph from './Graph.svelte'
+
+  // Initialize variables for ScrollyTeller
   let count, index, offset, progress;
   let width, height;
 
@@ -91,7 +95,7 @@
   >
     <Map {index}/>
     <F1 {index}/>
-    <Text {index}/>
+    <TextBase {index}/>
     <Graph {index}/>
 
     <div class='progress-bars'>

@@ -39,9 +39,7 @@
             window.removeEventListener('resize', handleResize);
         };
     });
-
     onMount(() => {
-
   });
   
     // Reactivity for visibility based on index
@@ -54,24 +52,9 @@
     $: s3 = index == 6 || index == 7;
     $: s4 = index == 7;
     $: s5 = index == 8;
-    $: s6 = index > 10 && index < 15;
-    $: p3 = index > 11 && index < 15;
-    $: p4 = index > 12 && index < 15;
-    $: s7 = index == 14;
-    $: s8 = index == 15;
-    $: s9 = index == 16;
-    $: s10 = index == 17;
-    $: s11 = index == 18;
-    $: s12 = index == 19;
-    $: s13 = index == 20;
-    $: s14 = index == 21;
-    $: s15 = index == 22 || index == 23;
-    $: s16 = index == 23;
-    $: h2 = index > 23 && index < 30;
-    $: s17 = index == 24;
-  </script>
-  
-  <style>
+</script>
+
+<style>
     @font-face {
         font-family: 'Formula1-Regular';
         src: url('Formula1-Regular.otf') format('opentype');
@@ -176,64 +159,8 @@
         font-size: 20px;
         font-family: 'Formula1-Regular'
     }
+</style>
 
-    .yasmarina {
-        display: block;
-        position: absolute;
-        margin-top: 32.5%;
-        margin-left: 50%;
-        margin-right: auto;
-        transform: translate(-50%, -50%); /* Offset by half of the width and height */
-        width: 70%; /* Adjust width as needed */
-        height: auto; /* Maintains aspect ratio */
-        transition: opacity 2s;
-        text-align: center; /* Center text horizontally within the element */
-        font-size: 8vw;
-        font-family: 'Formula1-Bold';
-        color: red;
-    }
-
-    .description {
-        display: block;
-        position: absolute;
-        top: 15%; /* Center vertically */
-        left: 50%; /* Center horizontally */
-        transform: translate(-50%, -50%); /* Offset by half of the width and height */
-        width: 70%; /* Adjust width as needed */
-        height: auto; /* Maintains aspect ratio */
-        transition: opacity 2s;
-        text-align: center; /* Center text horizontally within the element */
-        font-size: 20px;
-        font-family: 'Formula1-Regular'
-    }
-
-    .safety-car {
-        display: block;
-        position: absolute;
-        top: 5%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* Offset by half of the width and height */
-        width: 70%; /* Adjust width as needed */
-        height: auto; /* Maintains aspect ratio */
-        transition: opacity 2s;
-        background-color: transparent;
-    }
-
-    .h2 {
-        display: block;
-        position: absolute;
-        top: 18%; /* Center vertically */
-        left: 50%; /* Center horizontally */
-        transform: translate(-50%, -50%); /* Offset by half of the width and height */
-        width: auto; /* Adjust width as needed */
-        height: auto; /* Maintains aspect ratio */
-        transition: opacity 2s;
-        text-align: center; /* Center text horizontally within the element */
-        font-size: 36px;
-        font-family: 'Formula1-Bold'
-    }
-  </style>
-  
 {#if h1}
     <h in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
         So what is Formula 1?
@@ -290,104 +217,4 @@
         depending on where they finished from positions 1-10.
     </p>
     <img src="championship_points.jpg" alt="championship pts" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
-{/if}
-
-{#if s6}
-    <p class='subtitle1' style='left: 30%; width: 45%' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
-        In the last race of the 2021 Formula 1 season, there were two storylines:
-    </p>
-{/if}
-
-{#if p3}
-    <p class='paragraph1' style='left:30%' in:fade={{ duration: 200 }} out:fade={{ duration: 100 }}>
-        &#x2022; Max Verstappen's 1<sup>st</sup> championship
-    </p>
-    <img src="mv33.webp" alt="max verstappen" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 1 }}>
-{/if}
-
-{#if p4}
-    <p class='paragraph2' style='left:30%' in:fade={{ duration: 200 }} out:fade={{ duration: 100 }}>
-        &#x2022; Lewis Hamilton's 8<sup>th</sup> championship
-    </p>
-    <img src="lh44.jpeg" alt="lewis hamilton" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 1 }}>
-{/if}
-
-{#if s7}
-    <p class='subtitle3' style='top: 55%; width: 45%' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
-        And almost by fate itself, the two drivers had the same number of 
-        points entering the last race of the season at Abu Dhabi's...
-    </p>
-    <img src="2021points.png" alt="points after saudi gp" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
-{/if}
-
-{#if s8}
-    <p class='yasmarina' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
-        YAS MARINA CIRCUIT
-    </p>
-{/if}
-
-{#if s9}
-    <p class='subtitle1' style='top: 40%; left: 30%; width: 45%' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
-        Before every race, there is always a qualifying session, in which drivers 
-        must achieve the fastest lap time to determine their starting position 
-        on the "grid."
-    </p>
-    <img src="grid.jpeg" alt="empty grid" class="right-img" style='top: 45%' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
-{/if}
-
-{#if s10}
-    <p class='subtitle1' style='top: 40%; left: 30%; width: 45%' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
-        In this session, Max Verstappen gets the first position, with 
-        Lewis Hamilton right behind him at second.
-    </p>
-    <img src="abudhabi-qualifying.png" alt="abu dhabi qualifying" class="right-img" style='left: 75%; top: 45%; width: 40%' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
-{/if}
-
-{#if s11}
-    <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
-        However, at the start of the race, Hamilton got a better start than Verstappen, 
-        leading to Hamilton taking the lead instead of Verstappen.
-    </p>
-{/if}
-
-{#if s12}
-    <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
-        Max Verstappen pits for newer tyres, as each driver is mandated to have 
-        at least one pit stop in a race.
-    </p>
-{/if}
-
-{#if s13}
-    <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
-        Mercedes responds by pitting Hamilton, to ensure he doesn't lose lap times 
-        by staying on old tyres that are losing grip. Verstappen's teammate, 
-        Sergio Perez, takes 1<sup>st</sup> place.
-    </p>
-{/if}
-
-{#if s14}
-    <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
-        Hamilton finally passes Perez after a lengthy one-and-a-half lap tussle. 
-        However, Perez played the ultimate team game: defending long enough to bring 
-        Verstappen back into the race.
-    </p>
-{/if}
-
-{#if s15}
-    <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
-        Nicholas Latifi (dubbed Crashtifi by F1 fans) crashes into the barriers and prompts a safety car.
-    </p>
-{/if}
-
-{#if s16}
-    <p class='description' style='top: 77.5%' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
-        But what is a safety car?
-    </p>
-{/if}
-
-{#if h2}
-    <img src="safety-car.png" alt="safety car" class="safety-car" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
-    <h class='h2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
-        What is a safety car?
-    </h>
 {/if}
