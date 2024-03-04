@@ -59,6 +59,9 @@
     $: p4 = index > 12 && index < 15;
     $: s7 = index == 14;
     $: s8 = index == 15;
+    $: s9 = index == 16;
+    $: s10 = index == 17;
+    $: s11 = index == 18;
   </script>
   
   <style>
@@ -170,16 +173,30 @@
     .yasmarina {
         display: block;
         position: absolute;
-        top: 40%; /* Center vertically */
+        top: 45%; /* Center vertically */
         left: 50%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
-        width: 60%; /* Adjust width as needed */
+        width: 70%; /* Adjust width as needed */
         height: auto; /* Maintains aspect ratio */
         transition: opacity 2s;
         text-align: center; /* Center text horizontally within the element */
         font-size: 100px;
         font-family: 'Formula1-Bold';
         color: red;
+    }
+
+    .description {
+        display: block;
+        position: absolute;
+        top: 15%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Offset by half of the width and height */
+        width: 70%; /* Adjust width as needed */
+        height: auto; /* Maintains aspect ratio */
+        transition: opacity 2s;
+        text-align: center; /* Center text horizontally within the element */
+        font-size: 20px;
+        font-family: 'Formula1-Regular'
     }
   </style>
   
@@ -272,5 +289,29 @@
 {#if s8}
     <p class='yasmarina' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
         YAS MARINA CIRCUIT
+    </p>
+{/if}
+
+{#if s9}
+    <p class='subtitle1' style='top: 40%; left: 30%; width: 45%' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+        Before every race, there is always a qualifying session, in which drivers 
+        must achieve the fastest lap time to determine their starting position 
+        on the "grid."
+    </p>
+    <img src="grid.jpeg" alt="empty grid" class="right-img" style='top: 45%' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+{/if}
+
+{#if s10}
+    <p class='subtitle1' style='top: 40%; left: 30%; width: 45%' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+        In this session, Max Verstappen gets the first position, with 
+        Lewis Hamilton right behind him at second.
+    </p>
+    <img src="abudhabi-qualifying.png" alt="abu dhabi qualifying" class="right-img" style='left: 75%; top: 45%; width: 40%' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+{/if}
+
+{#if s11}
+    <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
+        However, at the start of the race, Hamilton got a better start than Verstappen, 
+        leading to Hamilton taking the lead instead of Verstappen.
     </p>
 {/if}
