@@ -173,14 +173,15 @@
     .yasmarina {
         display: block;
         position: absolute;
-        top: 45%; /* Center vertically */
-        left: 50%; /* Center horizontally */
+        margin-top: 32.5%;
+        margin-left: 50%;
+        margin-right: auto;
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: 70%; /* Adjust width as needed */
         height: auto; /* Maintains aspect ratio */
         transition: opacity 2s;
         text-align: center; /* Center text horizontally within the element */
-        font-size: 100px;
+        font-size: 8vw;
         font-family: 'Formula1-Bold';
         color: red;
     }
