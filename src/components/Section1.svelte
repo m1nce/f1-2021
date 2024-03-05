@@ -124,7 +124,7 @@
     .right-img {
         display: block;
         position: absolute;
-        top: 40%;
+        top: 50%;
         left: 80%;
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: 30%; /* Adjust width as needed */
@@ -163,13 +163,13 @@
 
 {#if h1}
     <h in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
-        So what is Formula 1?
+        What is Formula 1?
     </h>
 {/if}
 
 {#if s1}
     <p class='subtitle1' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
-        Formula 1 is the highest class of international racing: 
+        Formula 1 is a motorsport with the highest class of international racing: 
     </p>
 {/if}
 

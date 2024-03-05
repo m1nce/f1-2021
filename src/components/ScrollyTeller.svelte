@@ -33,7 +33,6 @@
     height: 80vh;
     background-color: rgba(0, 0, 0, 0); /* 20% opaque */
     /* color: white; */
-    outline: magenta solid 3px;
     text-align: center;
     max-width: 1400px; /* adjust at will */
     color: black;
@@ -45,7 +44,6 @@
     width: 100%;
     height: 100vh;
     position: relative;
-    outline: green solid 3px;
     transition: background-color 1s ease;
   }
 
@@ -58,7 +56,6 @@
     margin: auto;
     height: auto;
     position: relative;
-    outline: red solid 3px;
   }
 
   .progress-bars {

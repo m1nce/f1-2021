@@ -114,7 +114,7 @@
 {/if}
 
 {#if s16}
-    <p class='description' style='top: 77.5%' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
+    <p class='description' style='top: 90%' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
         But what is a safety car?
     </p>
 {/if}

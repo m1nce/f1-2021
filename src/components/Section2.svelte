@@ -43,6 +43,7 @@
   });
   
     // Reactivity for visibility based on index
+    $: h1= index >10 && index < 15;
     $: s6 = index > 10 && index < 15;
     $: p3 = index > 11 && index < 15;
     $: p4 = index > 12 && index < 15;
@@ -62,11 +63,23 @@
         font-family: 'Formula1-Wide';
         src: url('Formula1-Wide.otf') format('opentype');
     }
-
+    h {
+        display: block;
+        position: absolute;
+        top: 12.5%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Offset by half of the width and height */
+        width: auto; /* Adjust width as needed */
+        height: auto; /* Maintains aspect ratio */
+        transition: opacity 2s;
+        text-align: center; /* Center text horizontally within the element */
+        font-size: 36px;
+        font-family: 'Formula1-Bold'
+    }
     .subtitle1 {
         display: block;
         position: absolute;
-        top: 25%; /* Center vertically */
+        top: 30%; /* Center vertically */
         left: 35%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: auto; /* Adjust width as needed */
@@ -80,7 +93,7 @@
     .paragraph1 {
         display: block;
         position: absolute;
-        top: 32.5%; /* Center vertically */
+        top: 40%; /* Center vertically */
         left: 20%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: auto; /* Adjust width as needed */
@@ -94,7 +107,7 @@
     .paragraph2 {
         display: block;
         position: absolute;
-        top: 40%; /* Center vertically */
+        top: 50%; /* Center vertically */
         left: 20%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: auto; /* Adjust width as needed */
@@ -108,7 +121,7 @@
     .right-img {
         display: block;
         position: absolute;
-        top: 40%;
+        top: 53%;
         left: 80%;
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: 30%; /* Adjust width as needed */
@@ -119,7 +132,7 @@
     .subtitle3 {
         display: block;
         position: absolute;
-        top: 50%; /* Center vertically */
+        top: 70%; /* Center vertically */
         left: 30%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: 40%; /* Adjust width as needed */
@@ -133,19 +146,24 @@
     .yasmarina {
         display: block;
         position: absolute;
-        margin-top: 32.5%;
-        margin-left: 50%;
+        margin-top: 47%;
+        margin-left: 23%;
         margin-right: auto;
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: 70%; /* Adjust width as needed */
         height: auto; /* Maintains aspect ratio */
         transition: opacity 2s;
         text-align: center; /* Center text horizontally within the element */
-        font-size: 8vw;
+        font-size: 6vw;
         font-family: 'Formula1-Bold';
-        color: red;
+        color: black;
     }
 </style>
+{#if h1}
+    <h in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
+        Controversial Conclusion of 2021 
+    </h>
+{/if}
 
 {#if s6}
     <p class='subtitle1' style='left: 30%; width: 45%' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
@@ -168,7 +186,7 @@
 {/if}
 
 {#if s7}
-    <p class='subtitle3' style='top: 55%; width: 45%' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+    <p class='subtitle3' style='top: 70%; width: 45%' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
         And almost by fate itself, the two drivers had the same number of 
         points entering the last race of the season at Abu Dhabi's...
     </p>
