@@ -1,3 +1,6 @@
+# https://github.com/theOehrly/Fast-F1
+# https://docs.fastf1.dev/core.html#fastf1.core.Laps
+
 # Necessary Packages
 import pandas as pd
 import fastf1
