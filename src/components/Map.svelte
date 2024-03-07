@@ -1,66 +1,66 @@
 <script>
-        import { onMount } from 'svelte';
+    import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
+    import { tick } from 'svelte';
     export let index;
     let isVisible = false;
     let animator = false;
+    let ver_pitstop = false;
     let topdown = false;
-    let lapData = {
-        ver: [],
-        ham: []
-    };
-    let animatedPoints = {
-        ver: [],
-        ham: []
-    };
-    let currentLap = 'initial'; // To keep track of which lap data to display
-
+    let verlapData = [], hamlapData = [];
+    let animatedVerPoints = [], animatedHamPoints = [];
     const min_x = -2180, min_y = -5351;
     const scale_factor = 0.005839075090505664;
     const offset_x = 26.68749270115614, offset_y = 0;
 
     function transformPoint(point) {
-        return {
-            X: (point.X - min_x) * scale_factor + offset_x,
-            Y: (point.Y - min_y) * scale_factor + offset_y,
-            Time: point.Time // Include Time in transformed data
-        };
-    }
-
-    const generatePathD = (data) => {
-        return data.map((point, index) => {
-            const command = index === 0 ? 'M' : 'L';
-            return `${command}${point.Y},${point.X}`; // Adjusting coordinates
-        }).join(' ');
+    return {
+        X: (point.X - min_x) * scale_factor + offset_x,
+        Y: (point.Y - min_y) * scale_factor + offset_y,
+        Time: point.Time // Include Time in transformed data
     };
-
-    async function fetchLapData(fileName) {
-        const response = await fetch(fileName);
-        return response.json(); // Assuming the fetched data is an array
     }
-
+    
+    const generatePathD = (data) => {
+    return data.map((point, index) => {
+      const command = index === 0 ? 'M' : 'L';
+      // Inverting both X and Y values for a 180-degree rotation
+      return `${command}${point.Y},${(point.X)}`; // Adjusting Y value to reposition graph if needed
+    }).join(' ')};
     onMount(async () => {
-        const laps = ['ver_first_lap.json', 'ver_pitstop_lap.json', 'ham_first_lap.json', 'ham_regular_lap.json'];
-        const [verFirstLap, verPitstopLap, hamFirstLap, hamRegularLap] = await Promise.all(laps.map(lap => fetchLapData(lap)));
-        
-        lapData.ver = [verFirstLap.map(transformPoint), verPitstopLap.map(transformPoint)];
-        lapData.ham = [hamFirstLap.map(transformPoint), hamRegularLap.map(transformPoint)];
-        
-        // Optionally, start animation or display initial lap here
+    const ver_response = await fetch('ver_first_lap.json');
+    const ver_data = await ver_response.json(); // This should be an array
+    const ham_response = await fetch('ham_first_lap.json');
+    const ham_data = await ham_response.json(); // This should be an array
+    verlapData = ver_data.map(transformPoint);
+    hamlapData = ham_data.map(transformPoint);
+
+
+    animateLaps();
+    });
+    function animateLaps() {
+    let totalDelayVer = 0, totalDelayHam = 0;
+
+    verlapData.forEach((point, index) => {
+        const delayVer = index === 0 ? 0 : point.Time - verlapData[index - 1].Time;
+        totalDelayVer += delayVer;
+        setTimeout(() => {
+            animatedVerPoints = [point]; // Set the array to only contain the current point
+            // Trigger Svelte to re-render by assigning a new array object
+            animatedVerPoints = animatedVerPoints.slice();
+        }, totalDelayVer);
     });
 
-    // Example function to change the displayed lap based on index or other conditions
-    function updateLapDisplay() {
-        if (index == 19) {
-            currentLap = 'verPitstop'; // Adjust based on your conditions
-        } else {
-            currentLap = 'initial'; // Reset to initial condition
-        }
-        // Reset animation or update lap display logic here
-    }
-
-    // Call this function when you need to update the lap display
-    $: updateLapDisplay();
+    hamlapData.forEach((point, index) => {
+        const delayHam = index === 0 ? 0 : point.Time - hamlapData[index - 1].Time;
+        totalDelayHam += delayHam;
+        setTimeout(() => {
+            animatedHamPoints = [point]; // Set the array to only contain the current point
+            // Trigger Svelte to re-render by assigning a new array object
+            animatedHamPoints = animatedHamPoints.slice();
+        }, totalDelayHam);
+    });
+}
 
     // Reactivity for visibility based on index
     // !! CHANGE WHEN NEED CIRCUIT MAP!!
@@ -138,12 +138,12 @@
 {#if animator}
     <div class="track-container">
         <svg class="track-container" viewBox="0 0 100 100">
-            <path d={generatePathD(hamlapData)} fill="none" stroke="grey" stroke-width="3"/>
+            <path d={generatePathD(hamlapData)}  fill="none" stroke="grey" stroke-width="3"/>
             {#each animatedVerPoints as point}
-            <circle cx={(point.Y)} cy={(point.X)} r=".5" fill="red" />
+            <circle cx={(point.Y)} cy={(point.X)} r="1" fill="red" />
             {/each}
             {#each animatedHamPoints as point}
-                <circle cx={(point.Y)} cy={(point.X)} r=".5" fill="blue" />
+                <circle cx={(point.Y)} cy={(point.X)} r="1" fill="blue" />
             {/each}
           </svg>
         
@@ -152,12 +152,12 @@
 {#if ver_pitstop}
     <div class="track-container">
         <svg class="track-container" viewBox="0 0 100 100">
-            <path d={generatePathD(ham_regular_lap)} fill="none" stroke="grey" stroke-width="3"/>
+            <path d={generatePathD(hamlapData)} fill="none" stroke="grey" stroke-width="3"/>
             {#each animatedVerPoints as point}
-            <circle cx={(point.Y)} cy={(point.X)} r=".5" fill="red" />
+            <circle cx={(point.Y)} cy={(point.X)} r="1" fill="red" />
             {/each}
             {#each animatedHamPoints as point}
-                <circle cx={(point.Y)} cy={(point.X)} r=".5" fill="blue" />
+                <circle cx={(point.Y)} cy={(point.X)} r="1" fill="blue" />
             {/each}
           </svg>
         
