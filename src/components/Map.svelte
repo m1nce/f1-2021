@@ -7,65 +7,59 @@
     let topdown = false;
     let zoomLevel;
     import { tweened } from 'svelte/motion';
-    import { linear, quadIn } from 'svelte/easing';
+    let verlapData = [], hamlapData = [];
+    let animatedVerPoints = [], animatedHamPoints = [];
+    let which = 0; // Assuming both datasets have the same length for simplicity
+    const min_x = -2180, min_y = -5351;
+    const scale_factor = 0.005839075090505664;
+    const offset_x = 26.68749270115614, offset_y = 0;
 
-    // Define the path as an array of [x, y] points
-    const lewis_path = [
-      { x: 662, y: 360 },   // Start at top-left
-      { x: 662, y: 500 },
-       // Move to bottom-left
-    ];
-    const max_path = [
-      { x: 685, y: 380 },   // Start at top-left
-      { x: 685, y: 450 }, // Move to bottom-left
-    ];
-
-    // Create a tweened value for the circle's position
-    const lewis_position = tweened(lewis_path[0], { duration: 1000, easing: linear });
-    const max_position = tweened(max_path[0], { duration: 2000, easing: linear });
-
-    // Function to animate through the path
-    function animateLewis() {
-        lewis_path.forEach((pos, i) => {
-            setTimeout(() => lewis_position.set(pos), i * 1000);
-        });
-    }
-    function animateMax() {
-        max_path.forEach((pos, i) => {
-            setTimeout(() => max_position.set(pos), i * 1000);
-            });
-    }
-    $: if (index === 18) {
-    animateLewis();
-    animateMax();
+    function transformPoint(point) {
+    return {
+        X: (point.X - min_x) * scale_factor + offset_x,
+        Y: (point.Y - min_y) * scale_factor + offset_y,
+        Time: point.Time // Include Time in transformed data
+    };
     }
 
-    onMount(() => {
-        animatePath();
-        function updateZoomLevel() {
-            const screenWidth = window.innerWidth;
-            zoomLevel = screenWidth <= 600 ? 4 : 5.85; // Adjust values as needed
-        }
-    
-        function handleResize() {
-            updateZoomLevel();
-            // Assuming 'map' is defined and used within your component
-            // You need to initialize and define 'map' properly for your use case
-            // map.setZoom(zoomLevel);
-        }
-    
-        // Attach event listener for resize events
-        window.addEventListener('resize', handleResize);
-    
-        // Initial update on mount
-        updateZoomLevel();
-    
-        // Cleanup function to remove the event listener
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
+    onMount(async () => {
+    const ver_response = await fetch('ver_first_lap.json');
+    const ver_data = await ver_response.json(); // This should be an array
+    const ham_response = await fetch('ham_first_lap.json');
+    const ham_data = await ham_response.json(); // This should be an array
+
+    verlapData = ver_data.map(transformPoint);
+    hamlapData = ham_data.map(transformPoint);
+    console.log(hamlapData)
+    animateLaps();
+});
+
+function animateLaps() {
+    let totalDelayVer = 0, totalDelayHam = 0;
+
+    verlapData.forEach((point, index) => {
+        const delayVer = index === 0 ? 0 : point.Time - verlapData[index - 1].Time;
+        totalDelayVer += delayVer;
+        setTimeout(() => {
+            animatedVerPoints = [...animatedVerPoints, point];
+        }, totalDelayVer);
     });
-  
+
+    hamlapData.forEach((point, index) => {
+        const delayHam = index === 0 ? 0 : point.Time - hamlapData[index - 1].Time;
+        totalDelayHam += delayHam;
+        setTimeout(() => {
+            animatedHamPoints = [...animatedHamPoints, point];
+        }, totalDelayHam);
+    });
+}
+function restartAnimation() {
+        animatedVerPoints = [];
+        animatedHamPoints = [];
+        animateLaps(); // Call your existing animateLaps function
+    }
+
+
     // Reactivity for visibility based on index
     // !! CHANGE WHEN NEED CIRCUIT MAP!!
     $: if (index == 15) {
@@ -85,7 +79,7 @@
     } else {
         topdown = false;
     }
-  </script>
+</script>
   
   <style>
     .center {
@@ -118,36 +112,18 @@
     .fade-in {
       opacity: 1;
     }
-    .lewiscircle {
-        position: absolute;
-        width: 10px; /* Size of the circle */
-        height: 10px; /* Size of the circle */
-        background-color: red;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-    }
-    .maxcircle {
-        position: absolute;
-        width: 10px; /* Size of the circle */
-        height: 10px; /* Size of the circle */
-        background-color: blue;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-    }
     .track-container {
-        position: relative; /* The parent container is set to position: relative */
+        position: absolute; /* The parent container is set to position: relative */
+        top:5%;
+        margin-left:0%;
         width:  100%/* width of your track image */;
         height: 100%/* height of your track image */;
         }
-
-    .track-image {
-        position: absolute;
-        top: 20%;
-        margin-left: 25%;
-        margin-right: auto;
-        width: 50%;
-        height: auto;
-        }
+    .button {
+        position: absolute; /* The parent container is set to position: relative */
+        top:39%;
+        margin-left:0%;
+    }
   </style>
 
 {#if isVisible}
@@ -155,10 +131,16 @@
 {/if}
 {#if animator}
     <div class="track-container">
-        <img src="abu-dhabi.png" alt="Yas Marina Circuit" class="track-image fade-in" in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}/>
-        <div class="lewiscircle" style="left: {$lewis_position.x}px; top: {$lewis_position.y}px;" />
-        <div class="maxcircle" style="left: {$max_position.x}px; top: {$max_position.y}px;" />
+        <svg class="track-container" viewBox="0 0 100 100">
+            {#each animatedVerPoints as point}
+            <circle cx={(point.Y)} cy={(point.X)} r=".5" fill="red" />
+            {/each}
+            {#each animatedHamPoints as point}
+                <circle cx={(point.Y)} cy={(point.X)+2} r=".5" fill="blue" />
+            {/each}
+          </svg>
       </div>
+      <button class='button' on:click={restartAnimation}>Reanimate Laps</button>
 {/if}
 {#if topdown}
     <img src="yasmarina_irl.jpg" alt="Yas Marina Circuit" class="big fade-in" in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}/>
