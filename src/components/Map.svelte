@@ -1,15 +1,13 @@
 <script>
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
+    import { tick } from 'svelte';
     export let index;
     let isVisible = false;
     let animator = false;
     let topdown = false;
-    let zoomLevel;
-    import { tweened } from 'svelte/motion';
     let verlapData = [], hamlapData = [];
     let animatedVerPoints = [], animatedHamPoints = [];
-    let which = 0; // Assuming both datasets have the same length for simplicity
     const min_x = -2180, min_y = -5351;
     const scale_factor = 0.005839075090505664;
     const offset_x = 26.68749270115614, offset_y = 0;
@@ -53,12 +51,6 @@ function animateLaps() {
         }, totalDelayHam);
     });
 }
-function restartAnimation() {
-        animatedVerPoints = [];
-        animatedHamPoints = [];
-        animateLaps(); // Call your existing animateLaps function
-    }
-
 
     // Reactivity for visibility based on index
     // !! CHANGE WHEN NEED CIRCUIT MAP!!
@@ -133,14 +125,14 @@ function restartAnimation() {
     <div class="track-container">
         <svg class="track-container" viewBox="0 0 100 100">
             {#each animatedVerPoints as point}
-            <circle cx={(point.Y)} cy={(point.X)} r=".5" fill="red" />
+            <circle cx={(point.Y+1.5)} cy={(point.X)} r=".5" fill="red" />
             {/each}
             {#each animatedHamPoints as point}
-                <circle cx={(point.Y)} cy={(point.X)+2} r=".5" fill="blue" />
+                <circle cx={(point.Y)} cy={(point.X)} r=".5" fill="blue" />
             {/each}
           </svg>
+        
       </div>
-      <button class='button' on:click={restartAnimation}>Reanimate Laps</button>
 {/if}
 {#if topdown}
     <img src="yasmarina_irl.jpg" alt="Yas Marina Circuit" class="big fade-in" in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}/>
