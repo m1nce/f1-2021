@@ -39,8 +39,14 @@
             window.removeEventListener('resize', handleResize);
         };
     });
-    onMount(() => {
-  });
+    
+    let legends = [
+        { id: 'hamilton', color: 'blue', text: 'Hamilton'},
+        { id: 'verstappen', color: 'red', text: 'Verstappen'},
+        { id: 'perez', color: 'green', text: 'Perez'},
+        { id: 'latifi', color: 'silver', text: 'Latifi'},
+        { id: 'schumacher', color: 'black', text: 'Schumacher'},
+    ];
   
     // Reactivity for visibility based on index
     $: s11 = index == 18;
@@ -75,6 +81,30 @@
         font-size: 2.5vh;
         font-family: 'Formula1-Regular'
     }
+
+    .legend {
+        position: absolute;
+        right: 10px; /* Position to the right */
+        top: 40%; /* Position from the top */
+        padding: 10px;
+        background-color: transparent; /* Background of the legend */
+        border-radius: 5px;
+        font-family: 'Formula1-Regular';
+    }
+
+    .legend-entry {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .legend-color {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
 </style>
 
 {#if s11}
@@ -82,6 +112,14 @@
         However, at the start of the race, Hamilton got a better start than Verstappen, 
         leading to Hamilton taking the lead instead of Verstappen.
     </p>
+    <div class="legend">
+        {#each legends.slice(0, 2) as legend}
+            <div class="legend-entry">
+            <div class="legend-color" style="background-color: {legend.color};"></div>
+            <div>{legend.text}</div>
+            </div>
+        {/each}
+    </div>
 {/if}
 
 {#if s12}
@@ -89,6 +127,14 @@
         Max Verstappen pits for newer tyres, as each driver is mandated to have 
         at least one pit stop in a race.
     </p>
+    <div class="legend">
+        {#each legends.slice(0, 2) as legend}
+            <div class="legend-entry">
+            <div class="legend-color" style="background-color: {legend.color};"></div>
+            <div>{legend.text}</div>
+            </div>
+        {/each}
+    </div>
 {/if}
 
 {#if s13}
@@ -97,6 +143,14 @@
         by staying on old tyres that are losing grip. Verstappen's teammate, 
         Sergio Perez, takes 1<sup>st</sup> place.
     </p>
+    <div class="legend">
+        {#each legends.slice(0, 3) as legend}
+            <div class="legend-entry">
+            <div class="legend-color" style="background-color: {legend.color};"></div>
+            <div>{legend.text}</div>
+            </div>
+        {/each}
+    </div>
 {/if}
 
 {#if s14}
@@ -105,12 +159,28 @@
         However, Perez played the ultimate team game: defending long enough to bring 
         Verstappen back into the race.
     </p>
+    <div class="legend">
+        {#each legends.slice(0, 3) as legend}
+            <div class="legend-entry">
+            <div class="legend-color" style="background-color: {legend.color};"></div>
+            <div>{legend.text}</div>
+            </div>
+        {/each}
+    </div>
 {/if}
 
 {#if s15}
     <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
         Nicholas Latifi (dubbed Crashtifi by F1 fans) crashes into the barriers and prompts a safety car.
     </p>
+    <div class="legend">
+        {#each legends.slice(3,) as legend}
+            <div class="legend-entry">
+            <div class="legend-color" style="background-color: {legend.color};"></div>
+            <div>{legend.text}</div>
+            </div>
+        {/each}
+    </div>
 {/if}
 
 {#if s16}
@@ -118,3 +188,4 @@
         But what is a safety car?
     </p>
 {/if}
+

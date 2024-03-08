@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
     import { base } from '$app/paths';
     import { fade } from 'svelte/transition';
+    import confetti from 'canvas-confetti';
     export let index;
     let zoomLevel;
   
@@ -39,13 +40,20 @@
             window.removeEventListener('resize', handleResize);
         };
     });
-    onMount(() => {
-  });
-  
+
+    function launchConfetti() {
+        confetti({
+            particleCount: 1000,
+            angle: 90,
+            spread: 200,
+        });
+    }
+
+    let final = false;
     // Reactivity for visibility based on index
     $: h2 = index > 23 && index < 27;
     $: Yup = index == 27;
-    $: Future = index >=28 && index <29;
+    $: Future = index >= 28 && index < 29;
     $: s1 = index == 25;
     $: s2 = index == 26;
     $: s3 = index == 27;
@@ -55,6 +63,16 @@
     $: controversy = index == 30;
     $: lastlap = index == 31;
     $: reallast = index == 32;
+    $: if (index === 33) {
+        final = true;
+    } else {
+        final = false;
+    }
+
+    // React to changes in the 'final' variable
+    $: if (final) {
+        setTimeout(launchConfetti, 1500); // Delay of 1400ms before launching confetti
+    }
   </script>
   
 <style>
@@ -204,12 +222,14 @@
     </p>
     <img src='pit-stop.jpeg' alt='rb-pit-stop' class='below-img' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
 {/if}
+
 {#if hamilton}
     <img src="safety-car.png" alt="safety car" class="safety-car" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
     <h class='h2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
         Hamilton's Dilemma
     </h>
 {/if}
+
 {#if s5}
     <p class='description' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
         Since Hamilton was in the lead and the gap to Verstappen 
@@ -218,12 +238,14 @@
     </p>
     <img src='mercedescar.avif' alt='mercedes' class='below-img' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
 {/if}
+
 {#if controversy}
     <img src="safety-car.png" alt="safety car" class="safety-car" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
     <h class='h2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
         Where the Controversy Lies
     </h>
 {/if}
+
 {#if controversy}
     <p class='description' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
         When Verstappen pitted, cars that were a lap behind Hamilton and Verstappen were in-between
@@ -232,23 +254,30 @@
         and an easier time mainintaing his lead. But in this race, only the cars between Verstappen and Hamilton were unlapped.
     </p>
 {/if}
+
 {#if lastlap}
     <img src="safety-car.png" alt="safety car" class="safety-car" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
     <h class='h2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
         Where the Controversy Lies
     </h>
 {/if}
+
 {#if lastlap}
     <p class='description' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
         Thus, the race began with Hamilton on old tyres with Verstappen breathing down his neck
         with new and fast tyres.
     </p>
 {/if}
+
 {#if reallast}
     <div>
-    <h2 class='h2'>
-            And the rest... Is History
+        <h2 class='h2'>
+                And the rest... is history
         </h2>
     </div>
 {/if}
 
+{#if final}
+    <img src='crying-tyre.jpeg' alt='crying tyre' class='below-img' style='left:5%' in:fade={{ duration: 400, delay: 200}} out:fade={{ duration: 100 }}>
+    <img src='2021podium.jpeg' alt='abu dhabi podium' class='below-img' style='left:55%; width:37.5%' in:fade={{ duration: 1000, delay: 1400}} out:fade={{ duration: 100 }}>
+{/if}
