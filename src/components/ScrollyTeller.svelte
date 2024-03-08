@@ -8,6 +8,11 @@
   import F1 from './F1.svelte'
   import TextBase from './TextBase.svelte'
   import Map from './Map.svelte'
+  import Pitstop from './Pitstop.svelte'
+  import SergioTime from './SergioTime.svelte'
+  import Hamovertake from './Hamovertake.svelte'
+  import LafCrash from './LafCrash.svelte'
+  import Lastlap from './Lastlap.svelte';
   import Graph from './Graph.svelte'
 
   // Initialize variables for ScrollyTeller
@@ -25,7 +30,7 @@
     document.head.appendChild(style);
   });
 
-  $: isYellowBackground = index > 23;
+  $: isYellowBackground = index > 23 && index <= 31;
 </script>
 
 <style>
@@ -91,8 +96,13 @@
     bind:clientHeight={height}
   >
     <Map {index}/>
+    <Pitstop {index}/>
+    <SergioTime {index}/>
+    <Hamovertake {index}/>
+    <LafCrash {index}/>
     <F1 {index}/>
     <TextBase {index}/>
+    <Lastlap {index}/>
     <!-- <Graph {index}/> -->
 
     <div class='progress-bars'>

@@ -43,12 +43,18 @@
   });
   
     // Reactivity for visibility based on index
-    $: h2 = index > 23 && index < 30;
+    $: h2 = index > 23 && index < 27;
+    $: Yup = index == 27;
+    $: Future = index >=28 && index <29;
     $: s1 = index == 25;
     $: s2 = index == 26;
     $: s3 = index == 27;
     $: s4 = index == 28;
     $: s5 = index == 29;
+    $: hamilton = index == 29;
+    $: controversy = index == 30;
+    $: lastlap = index == 31;
+    $: reallast = index == 32;
   </script>
   
 <style>
@@ -122,6 +128,19 @@
         left: 30%; 
         width: 40%
     }
+    .belowleft-img {
+        position: absolute; 
+        top: 55%; 
+        left: 5%; 
+        width: 35%
+    }
+    .belowright-img {
+        position: absolute; 
+        top: 55%; 
+        left: 56.5%; 
+        width: 35%
+        
+    }
 </style>
 
 {#if h2}
@@ -130,23 +149,37 @@
         What is a safety car?
     </h>
 {/if}
+{#if Future}
+    <img src="safety-car.png" alt="safety car" class="safety-car" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+    <h class='h2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+        Back to the Race
+    </h>
+{/if}
+{#if Yup}
+    <img src="safety-car.png" alt="safety car" class="safety-car" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+    <h class='h2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+        What happens during this period?
+    </h>
+{/if}
 
 {#if s1}
     <p class='description' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
         In Formula 1, there are two different types of safety cars:<br>
     </p>
-    <p class='description' style='top: 37.5%; left: 40%'in:fade={{ duration: 200, delay: 200}} out:fade={{ duration: 100 }}>
-        &#x2022; A physical car on track <br>
+    <p class='description' style='top: 45%; left: 22%'in:fade={{ duration: 200, delay: 200}} out:fade={{ duration: 100 }}>
+        A physical car on the track <br>
     </p>
-    <p class='description' style='top: 45%; left: 38.5%'in:fade={{ duration: 200, delay: 400}} out:fade={{ duration: 100 }}>
-        &#x2022; A virtual safety car <br>
+    <p class='description' style='top: 45%; left: 73%'in:fade={{ duration: 200, delay: 200}} out:fade={{ duration: 100 }}>
+        A virtual safety car <br>
     </p>
+    <img src='physicalsafety.png' alt='crash' class='belowleft-img' in:fade={{ duration: 300, delay: 500}} out:fade={{ duration: 100 }}>
+    <img src='virtualsafety.png' alt='crash' class='belowright-img' in:fade={{ duration: 300, delay: 500}} out:fade={{ duration: 100 }}>
 {/if}
 
 {#if s2}
     <p class='description' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
         In this instance, a safety car was deployed due to an on-track 
-        collision that obstructed the racing line.
+        collision from Latifi that obstructed the racing line.
     </p>
     <img src='latifi-crash.webp' alt='crash' class='below-img' in:fade={{ duration: 300, delay: 200}} out:fade={{ duration: 100 }}>
 {/if}
@@ -163,7 +196,7 @@
 
 {#if s4}
     <p class='description' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
-        However, in this particular race, there was uncertainty whether 
+        In this particular race, there was uncertainty whether 
         the race would conclude under the safety car, which would freeze 
         the positions and secure Hamilton's victory. In a strategic gamble, 
         Verstappen pitted for fresh, faster tyres, betting on the chance of 
@@ -171,12 +204,51 @@
     </p>
     <img src='pit-stop.jpeg' alt='rb-pit-stop' class='below-img' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
 {/if}
-
+{#if hamilton}
+    <img src="safety-car.png" alt="safety car" class="safety-car" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+    <h class='h2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+        Hamilton's Dilemma
+    </h>
+{/if}
 {#if s5}
     <p class='description' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
-        On the other hand, since Hamilton was 1st and the gap to Verstappen 
-        was not sufficient enough to pit and rejoin the race as 1st, 
-        he was forced to stay out on his old and slower tyres.
+        Since Hamilton was in the lead and the gap to Verstappen 
+        was not sufficient enough to pit and rejoin the race as 1<sup>st</sup>, 
+        he was forced to stay out on his old tyres, leaving him at a disadvantage.
     </p>
     <img src='mercedescar.avif' alt='mercedes' class='below-img' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
 {/if}
+{#if controversy}
+    <img src="safety-car.png" alt="safety car" class="safety-car" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+    <h class='h2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+        Where the Controversy Lies
+    </h>
+{/if}
+{#if controversy}
+    <p class='description' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
+        When Verstappen pitted, cars that were a lap behind Hamilton and Verstappen were in-between
+        their cars (Lap 56 rather than 57). Under normal procedures, all lapped cars would unlap
+        themselves. This procedure would give Hamilton an advantage as he would have a buffer from Verstappen 
+        and an easier time mainintaing his lead. But in this race, only the cars between Verstappen and Hamilton were unlapped.
+    </p>
+{/if}
+{#if lastlap}
+    <img src="safety-car.png" alt="safety car" class="safety-car" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+    <h class='h2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+        Where the Controversy Lies
+    </h>
+{/if}
+{#if lastlap}
+    <p class='description' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
+        Thus, the race began with Hamilton on old tyres with Verstappen breathing down his neck
+        with new and fast tyres.
+    </p>
+{/if}
+{#if reallast}
+    <div>
+    <h2 class='h2'>
+            And the rest... Is History
+        </h2>
+    </div>
+{/if}
+
