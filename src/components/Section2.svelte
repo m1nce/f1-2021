@@ -175,7 +175,7 @@
     <p class='paragraph1' style='left:30%' in:fade={{ duration: 200 }} out:fade={{ duration: 100 }}>
         &#x2022; Max Verstappen's 1<sup>st</sup> championship
     </p>
-    <img src="mv33.webp" alt="max verstappen" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 1 }}>
+    <img src="mv1.jpeg" alt="max verstappen" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 1 }}>
 {/if}
 
 {#if p4}

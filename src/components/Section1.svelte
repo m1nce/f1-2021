@@ -82,7 +82,7 @@
     .subtitle1 {
         display: block;
         position: absolute;
-        top: 25%; /* Center vertically */
+        top: 40%; /* Center vertically */
         left: 35%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: auto; /* Adjust width as needed */
@@ -96,7 +96,7 @@
     .paragraph1 {
         display: block;
         position: absolute;
-        top: 32.5%; /* Center vertically */
+        top: 47.5%; /* Center vertically */
         left: 20%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: auto; /* Adjust width as needed */
@@ -110,7 +110,7 @@
     .paragraph2 {
         display: block;
         position: absolute;
-        top: 40%; /* Center vertically */
+        top: 55%; /* Center vertically */
         left: 20%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: auto; /* Adjust width as needed */
@@ -135,7 +135,7 @@
     .subtitle2 {
         display: block;
         position: absolute;
-        top: 30%; /* Center vertically */
+        top: 45%; /* Center vertically */
         left: 30%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: 40%; /* Adjust width as needed */
@@ -149,7 +149,7 @@
     .subtitle3 {
         display: block;
         position: absolute;
-        top: 50%; /* Center vertically */
+        top: 60%; /* Center vertically */
         left: 30%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: 40%; /* Adjust width as needed */
@@ -197,11 +197,11 @@
 {/if}
 
 {#if s3}
-    <p class='subtitle2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
+    <p class='subtitle2' style="top:40%" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
         In a season, a number of teams and drivers compete, 
         with each team typically having two drivers race for them.
     </p>
-    <img src="drivers.jpeg" alt="drivers" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 1 }}>
+    <img src="f1team.jpeg" alt="drivers" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 1 }}>
 {/if}
 
 {#if s4}
