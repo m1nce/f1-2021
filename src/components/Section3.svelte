@@ -139,7 +139,7 @@
 
 {#if s13}
     <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
-        Mercedes responds by pitting Hamilton, to ensure he doesn't lose lap times 
+        Hamilton pits to ensure he doesn't lose lap time
         by staying on old tyres that are losing grip. Verstappen's teammate, 
         Sergio Perez, takes 1<sup>st</sup> place.
     </p>

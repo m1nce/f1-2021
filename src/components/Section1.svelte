@@ -191,14 +191,14 @@
 
 {#if s2}
     <p class='subtitle2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
-        It consists of a season, which is a series of races, also known as Grand Prix. 
+        It consists of a season, which is a series of races, each known as a Grand Prix.
     </p>
     <img src="2021calendar.jpeg" alt="calendar" class="right-img" style="width: 25%;" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
 {/if}
 
 {#if s3}
     <p class='subtitle2' style="top:40%" in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
-        In a season, a number of teams and drivers compete, 
+        In a season, a number of teams compete,
         with each team typically having two drivers race for them.
     </p>
     <img src="f1team.jpeg" alt="drivers" class="right-img" in:fade={{ duration: 400 }} out:fade={{ duration: 1 }}>

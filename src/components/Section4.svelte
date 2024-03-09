@@ -72,6 +72,8 @@
     // React to changes in the 'final' variable
     $: if (final) {
         setTimeout(launchConfetti, 1500); // Delay of 1400ms before launching confetti
+        setTimeout(launchConfetti, 1800);
+        setTimeout(launchConfetti, 2100);
     }
   </script>
   
@@ -205,7 +207,7 @@
 {#if s3}
     <p class='description' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
         During a safety car period, all cars are required to reduce speed and 
-        may not overtake each other on the track, ensuring safety. This 
+        must not overtake each other on the track, ensuring safety. This 
         slowdown often presents a strategic opportunity for teams to pit 
         and change tyres.
     </p>
@@ -250,8 +252,8 @@
     <p class='description' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
         When Verstappen pitted, cars that were a lap behind Hamilton and Verstappen were in-between
         their cars (Lap 56 rather than 57). Under normal procedures, all lapped cars would unlap
-        themselves. This procedure would give Hamilton an advantage as he would have a buffer from Verstappen 
-        and an easier time mainintaing his lead. But in this race, only the cars between Verstappen and Hamilton were unlapped.
+        themselves. This procedure would give Hamilton an advantage as the race would end on the safety car, 
+        meaning he would automatically win. But in this race, only the cars between Verstappen and Hamilton were unlapped.
     </p>
 {/if}
 
