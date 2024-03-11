@@ -32,7 +32,6 @@
     verlapData = ver_data.map(transformPoint);
     hamlapData = ham_data.map(transformPoint);
     serlapData = ser_data.map(transformPoint);
-    animateLaps();
     });
     function animateLaps() {
     let totalDelayVer = 27000, totalDelayHam = 0, totalDelaySer = 10000;
@@ -68,6 +67,7 @@
 }
     $: if (index == 20) {
         animator = true;
+        animateLaps();
     } else {
         animator = false;
     }

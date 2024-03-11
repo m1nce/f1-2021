@@ -31,10 +31,9 @@
     const ideal_response = await fetch('ver_lap_21.json');
     const ideal_data = await ideal_response.json();
     idealmap = ideal_data.map(transformPoint);
-
     verlapData = ver_data.map(transformPoint);
     hamlapData = ham_data.map(transformPoint);
-    animateLaps();
+    
     });
     function animateLaps() {
     let totalDelayVer = 0, totalDelayHam = 0;
@@ -63,6 +62,7 @@
     // !! CHANGE WHEN NEED CIRCUIT MAP!!
     $: if (index == 32) {
         animator = true;
+        animateLaps();
     } else {
         animator = false;
     }
@@ -71,17 +71,18 @@
     .track-container {
     position: absolute;
     top: 15%;
-    margin-left: 0%;
+    margin-left: -5%;
     left: 30%;
-    width: 75%;
-    height: 75%;
+    width: 80%;
+    height: 80%;
     z-index: 1; /* Lower z-index than the video */
   }
 
   .video-container {
     top: 30%;
-    width: 30%;
-    height: 30%;
+    width: 50%;
+    height: 50%;
+    left: 4%;
     position: absolute; /* This ensures z-index is applied */
     z-index: 99999; /* Higher z-index to ensure it's on top */
     /* Other styling here */
