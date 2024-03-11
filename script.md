@@ -7,7 +7,9 @@ A culmination of a season's worth of competition, strategy, and controversy boil
 one race, leaving fans and critics divided to this day. Our goal is to strip back the layers of 
 this event, examining the key decisions, the intense rivalries, and the moments that have made 
 it a landmark in motorsport discourse. We'll explore what made this race so contentious and while 
-highlighting its most important moments. This is a deep dive into the complexities of the 
+highlighting its most important moments. 
+
+This is a deep dive into the complexities of the 
 sport, the rules that shape it, and the impact of those final laps on the legacy of the drivers involved.
 We used telemetry data collected from cars, using its time and positional elements to show cars'
 movement on the track to simulate watching the race in real-time. With our highlights of certain laps, 
