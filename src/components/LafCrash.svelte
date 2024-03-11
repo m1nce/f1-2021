@@ -33,7 +33,6 @@
             msclapData = msc_data.map(transformPoint);
             hamlapData = ham_data.map(transformPoint);
             latlapData = lat_data.map(transformPoint);
-            animateLaps();
     });
     function animateLaps() {
         let totalDelaymsc = 0, totalDelayHam = 0, totalDelaylat = 0;
@@ -70,6 +69,7 @@
 }
 $: if (index === 22 || index === 23) {
     animator = true;
+    animateLaps();
 } else {
     animator = false;
 }

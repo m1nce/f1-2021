@@ -36,7 +36,6 @@
     verlapData = ver_data.map(transformPoint);
     hamlapData = ham_data.map(transformPoint);
     console.log(hamlapData);
-    animateLaps();
     });
     function animateLaps() {
     let totalDelayVer = 0, totalDelayHam = 0;
@@ -65,6 +64,7 @@
     // !! CHANGE WHEN NEED CIRCUIT MAP!!
     $: if (index == 18) {
         animator = true;
+        animateLaps();
     } else {
         animator = false;
     }

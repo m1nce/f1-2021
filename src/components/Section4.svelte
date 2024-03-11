@@ -71,9 +71,9 @@
 
     // React to changes in the 'final' variable
     $: if (final) {
-        setTimeout(launchConfetti, 1500); // Delay of 1400ms before launching confetti
-        setTimeout(launchConfetti, 1800);
-        setTimeout(launchConfetti, 2100);
+        setTimeout(launchConfetti, 3000); // Delay of 1400ms before launching confetti
+        setTimeout(launchConfetti, 3300);
+        setTimeout(launchConfetti, 3600);
     }
   </script>
   
@@ -160,6 +160,11 @@
         left: 56.5%; 
         width: 35%
         
+    }
+    .top-img {
+        position: absolute; 
+        top: 6%;
+        width: 30%;
     }
 </style>
 
@@ -280,6 +285,7 @@
 {/if}
 
 {#if final}
-    <img src='crying-tyre.jpeg' alt='crying tyre' class='below-img' style='left:5%' in:fade={{ duration: 400, delay: 200}} out:fade={{ duration: 100 }}>
-    <img src='2021podium.jpeg' alt='abu dhabi podium' class='below-img' style='left:55%; width:37.5%' in:fade={{ duration: 1000, delay: 1400}} out:fade={{ duration: 100 }}>
+<img src='newspaper.png' alt='headline' class='top-img' style='left:35%' in:fade={{ duration: 400, delay: 200}} out:fade={{ duration: 100 }}>
+    <img src='crying-tyre.jpeg' alt='crying tyre' class='below-img' style='left:5%' in:fade={{ duration: 600, delay: 1500}} out:fade={{ duration: 100 }}>
+    <img src='2021podium.jpeg' alt='abu dhabi podium' class='below-img' style='left:50%; width:37.5%' in:fade={{ duration: 600, delay: 3000}} out:fade={{ duration: 100 }}>
 {/if}
