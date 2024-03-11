@@ -49,6 +49,7 @@
     width: 100%;
     height: 100vh;
     position: relative;
+    background-color: rgba(0, 0, 0, 0);
     transition: background-color 1s ease;
   }
 
