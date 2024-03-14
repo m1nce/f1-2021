@@ -36,7 +36,7 @@
   
   });
   function animateLaps() {
-  let totalDelayVer = 0, totalDelayHam = 0;
+  let totalDelayVer = 22000, totalDelayHam = 22000;
 
   verlapData.forEach((point, index) => {
       const delayVer = index === 0 ? 0 : point.Time - verlapData[index - 1].Time;
