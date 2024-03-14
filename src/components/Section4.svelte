@@ -5,7 +5,13 @@
     import confetti from 'canvas-confetti';
     export let index;
     let zoomLevel;
-  
+    let legends = [
+        { id: 'hamilton', color: 'blue', text: 'Hamilton'},
+        { id: 'verstappen', color: 'red', text: 'Verstappen'},
+        { id: 'perez', color: 'green', text: 'Perez'},
+        { id: 'latifi', color: 'silver', text: 'Latifi'},
+        { id: 'schumacher', color: 'black', text: 'Schumacher'},
+    ];
     onMount(() => {
         // Add text font
         const style = document.createElement('style');
@@ -125,7 +131,8 @@
         transition: opacity 2s;
         text-align: center; /* Center text horizontally within the element */
         font-size: 36px;
-        font-family: 'Formula1-Bold'
+        font-family: 'Formula1-Bold';
+        z-index: -10;
     }
 
     .description {
@@ -165,6 +172,31 @@
         position: absolute; 
         top: 6%;
         width: 30%;
+    }
+    .legend {
+        position: absolute;
+        right: 10px; /* Position to the right */
+        top: 40%; /* Position from the top */
+        padding: 10px;
+        background-color: transparent; /* Background of the legend */
+        border-radius: 5px;
+        font-family: 'Formula1-Regular';
+        z-index:-10;
+    }
+
+    .legend-entry {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        z-index:-10;
+    }
+
+    .legend-color {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-right: 10px;
+        z-index:-10;
     }
 </style>
 
@@ -278,9 +310,17 @@
 
 {#if reallast}
     <div>
-        <h2 class='h2'>
+        <h2 class='h2' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
                 And the rest... is history
         </h2>
+        <div class="legend">
+            {#each legends.slice(0,2) as legend}
+                <div class="legend-entry">
+                <div class="legend-color" style="background-color: {legend.color};"></div>
+                <div>{legend.text}</div>
+                </div>
+            {/each}
+        </div>
     </div>
 {/if}
 

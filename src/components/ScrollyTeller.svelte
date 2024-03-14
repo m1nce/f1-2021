@@ -51,6 +51,7 @@
     position: relative;
     background-color: rgba(0, 0, 0, 0);
     transition: background-color 1s ease;
+    z-index: -10;
   }
 
   .yellow-background {
@@ -62,13 +63,9 @@
     margin: auto;
     height: auto;
     position: relative;
+    z-index: -10;
   }
 
-  .progress-bars {
-    position: absolute;
-    background: rgba(170, 51, 120, 0.2);
-    visibility: visible;
-  }
 
   @font-face {
     font-family: 'Formula1-Regular';
@@ -88,7 +85,6 @@
   bind:count
   bind:index
   bind:offset
-  bind:progress
 >
   <div
     class='background {isYellowBackground ? 'yellow-background' : ''}'
@@ -106,9 +102,6 @@
     <Lastlap {index}/>
     <!-- <Graph {index}/> -->
 
-    <div class='progress-bars'>
-      
-    </div>
   </div>
 
   <div class='foreground' slot='foreground'>

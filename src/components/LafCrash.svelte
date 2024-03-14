@@ -3,6 +3,7 @@
     export let index;
     import { fade } from 'svelte/transition';
     let animator = false;
+    let yeppers=false;
     let msclapData = [], hamlapData = [], latlapData = [];
     let animatedmscPoints = [], animatedHamPoints = [], animatedlatPoints = [];
     const min_x = -2180, min_y = -5351;
@@ -35,43 +36,53 @@
             latlapData = lat_data.map(transformPoint);
     });
     function animateLaps() {
-        let totalDelaymsc = 0, totalDelayHam = 0, totalDelaylat = 0;
+    let totalDelaymsc = 0, totalDelayHam = 0, totalDelaylat = 0;
 
     msclapData.forEach((point, index) => {
-        const delaymsc = index === 0 ? 0 : point.Time - msclapData[index - 1].Time;
-        totalDelaymsc += delaymsc;
-        setTimeout(() => {
-            animatedmscPoints = [point]; // Set the array to only contain the current point
-            // Trigger Svelte to re-render by assigning a new array object
-            animatedmscPoints = animatedmscPoints.slice();
-        }, totalDelaymsc);
+        if (point.Time > 60000) {
+            const delaymsc = index === 0 ? 0 : point.Time - msclapData[index - 1].Time;
+            totalDelaymsc += delaymsc;
+            setTimeout(() => {
+                animatedmscPoints = [point]; // Set the array to only contain the current point
+                animatedmscPoints = animatedmscPoints.slice(); // Trigger re-render
+            }, totalDelaymsc);
+        }
     });
 
     hamlapData.forEach((point, index) => {
-        const delayHam = index === 0 ? 0 : point.Time - hamlapData[index - 1].Time;
-        totalDelayHam += delayHam;
-        setTimeout(() => {
-            animatedHamPoints = [point]; // Set the array to only contain the current point
-            // Trigger Svelte to re-render by assigning a new array object
-            animatedHamPoints = animatedHamPoints.slice();
-        }, totalDelayHam);
+        if (point.Time > 60000) {
+            const delayHam = index === 0 ? 0 : point.Time - hamlapData[index - 1].Time;
+            totalDelayHam += delayHam;
+            setTimeout(() => {
+                animatedHamPoints = [point]; // Set the array to only contain the current point
+                animatedHamPoints = animatedHamPoints.slice(); // Trigger re-render
+            }, totalDelayHam);
+        }
     });
 
     latlapData.forEach((point, index) => {
-        const delaylat = index === 0 ? 0 : point.Time - latlapData[index - 1].Time;
-        totalDelaylat += delaylat;
-        setTimeout(() => {
-            animatedlatPoints = [point]; // Set the array to only contain the current point
-            // Trigger Svelte to re-render by assigning a new array object
-            animatedlatPoints = animatedlatPoints.slice();
-        }, totalDelaylat);
+        if (point.Time > 60000) {
+            const delaylat = index === 0 ? 0 : point.Time - latlapData[index - 1].Time;
+            totalDelaylat += delaylat;
+            setTimeout(() => {
+                animatedlatPoints = [point]; // Set the array to only contain the current point
+                animatedlatPoints = animatedlatPoints.slice(); // Trigger re-render
+            }, totalDelaylat);
+        }
     });
 }
-$: if (index === 22 || index === 23) {
+
+$: if (index === 22) {
     animator = true;
+    console.log(22)
     animateLaps();
 } else {
     animator = false;
+}
+$: if (index === 23) {
+    yeppers = true;
+} else {
+    yeppers = false;
 }
 </script>
   
@@ -95,6 +106,14 @@ $: if (index === 22 || index === 23) {
             {#each animatedlatPoints as point}
                 <circle cx={(point.Y)} cy={(point.X)} r="1" fill="silver" in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}/>
             {/each}
+          </svg>
+      </div>
+{/if}
+{#if yeppers}
+    <div class="track-container">
+        <svg class="track-container" viewBox="0 0 100 100">
+            <path d={generatePathD(msclapData)} fill="none" stroke="grey" stroke-width="3" />
+            <circle cx={(31.1865)} cy={(51.9123)} r="1" fill="silver" in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}/>
           </svg>
       </div>
 {/if}

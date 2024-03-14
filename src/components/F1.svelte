@@ -53,6 +53,7 @@
         height: auto; /* Maintains aspect ratio */
         transition: all 0.5s ease; /* Smooth transition for all properties */
         background-color: transparent;
+        z-index:-10;
     }
   
     .absolute-center {
@@ -75,6 +76,7 @@
         height: auto; /* Maintains aspect ratio */
         transition: all 0.5s ease; /* Smooth transition for all properties */
         background-color: transparent;
+        z-index:-10;
     }
 
     .year {
@@ -85,6 +87,7 @@
         top: 55%;
         left: 70%;
         transition: transform 0.5s ease, font-size 0.5s ease, top 0.5s ease, left 0.5s ease; /* Adjust transition properties as needed */
+        z-index:-10;
     }
 
     .yearsmaller {
@@ -95,6 +98,7 @@
         color: red;
         font-family: 'Formula1-Bold';
         font-size: 16px;
+        z-index:-10;
     }
   </style>
 
