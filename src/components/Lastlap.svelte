@@ -104,6 +104,6 @@
 </div>
 <div class="video-container">
   <!-- svelte-ignore a11y-media-has-caption -->
-  <video src="winner.mp4" controls width="100%" height="100%" autoplay m></video>
+  <video src="winner.mp4" controls width="100%" height="100%" autoplay muted></video>
 </div>
 {/if}
