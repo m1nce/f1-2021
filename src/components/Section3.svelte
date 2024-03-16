@@ -1,7 +1,9 @@
 <script>
     import { onMount } from 'svelte';
+    import { tick } from 'svelte';
     import { base } from '$app/paths';
     import { fade } from 'svelte/transition';
+
     export let index;
     let zoomLevel;
   
@@ -49,12 +51,43 @@
     ];
   
     // Reactivity for visibility based on index
-    $: s11 = index == 16;
-    $: s12 = index == 17;
-    $: s13 = index == 18;
-    $: s14 = index == 19;
-    $: s15 = index == 20 || index == 21;
-    $: s16 = index == 21;
+    let s11, s12, s13, s14, s15, s16 = false;
+    let lapNumber = 1;
+    $: if (index == 16) {
+        s11 = true;
+        lapNumber = 1;
+    } else {
+        s11 = false;
+    }
+    $: if (index == 17) {
+        lapNumber = 14;
+        s12 = true;
+    } else {
+        s12 = false;
+    }
+    $: if (index == 18) {
+        s13 = true;
+        lapNumber = 15;
+    } else {
+        s13 = false;
+    }
+    $: if (index == 19) {
+        s14 = true;
+        lapNumber = 21;
+    } else {
+        s14 = false;
+    }
+    $: if (index == 20 || index == 21) {
+        s15 = true;
+        lapNumber = 53;
+    } else {
+        s15 = false;
+    }
+    $: if (index == 21) {
+        s16 = true;
+    } else {
+        s16 = false;
+    }
   </script>
   
 <style>
@@ -105,6 +138,21 @@
         margin-right: 10px;
     }
 
+    .lap-legend {
+        position: absolute;
+        right: 25%; /* Position to the right */
+        top: 35%; /* Position from the top */
+        padding: 10px;
+        background-color: transparent; /* Background of the legend */
+        border-radius: 5px;
+        font-family: 'Formula1-Bold';
+        font-size: 2.5vh;
+    }
+    
+    .lap-number {
+        
+    }
+
 </style>
 
 {#if s11}
@@ -120,6 +168,11 @@
             </div>
         {/each}
     </div>
+    <div class='lap-legend'>
+        <div class="legend-entry">
+            <p class='lap-number'>Lap {lapNumber}/58</p>
+        </div>
+    </div>
 {/if}
 
 {#if s12}
@@ -134,6 +187,11 @@
             <div>{legend.text}</div>
             </div>
         {/each}
+    </div>
+    <div class='lap-legend'>
+        <div class="legend-entry">
+            <p class='lap-number'>Lap {lapNumber}/58</p>
+        </div>
     </div>
 {/if}
 
@@ -151,6 +209,11 @@
             </div>
         {/each}
     </div>
+    <div class='lap-legend'>
+        <div class="legend-entry">
+            <p class='lap-number'>Lap {lapNumber}/58</p>
+        </div>
+    </div>
 {/if}
 
 {#if s14}
@@ -167,6 +230,11 @@
             </div>
         {/each}
     </div>
+    <div class='lap-legend'>
+        <div class="legend-entry">
+            <p class='lap-number'>Lap {lapNumber}/58</p>
+        </div>
+    </div>
 {/if}
 
 {#if s15}
@@ -181,6 +249,11 @@
             <div>{legend.text}</div>
             </div>
         {/each}
+    </div>
+    <div class='lap-legend'>
+        <div class="legend-entry">
+            <p class='lap-number'>Lap {lapNumber}/58</p>
+        </div>
     </div>
 {/if}
 
