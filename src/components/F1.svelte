@@ -40,8 +40,8 @@
     });
   
     // Reactivity for visibility based on index
-    $: logo = index == 0 || index == 9 || index == 10;
-    $: yearAnimation = index == 10;
+    $: logo = index == 0 || index == 7 || index == 8;
+    $: yearAnimation = index == 8;
   </script>
   
   <style>
@@ -70,8 +70,8 @@
 
     .smaller {
         position: absolute; /* Position absolutely within a relative container */
-        left: 10%; /* Align to the left */
-        top: 5%; /* Align to the top */
+        left: 12.5%; /* Align to the left */
+        top: 7.5%; /* Align to the top */
         width: 20%; /* Adjust as per your requirement */
         height: auto; /* Maintains aspect ratio */
         transition: all 0.5s ease; /* Smooth transition for all properties */
@@ -92,8 +92,8 @@
 
     .yearsmaller {
         position: absolute; /* Position absolutely within a relative container */
-        left: 18%; /* Align to the left */
-        top: 9%; /* Align to the top */
+        left: 20.5%; /* Align to the left */
+        top: 11.5%; /* Align to the top */
         transition: all 0.5s ease; /* Smooth transition for all properties */
         color: red;
         font-family: 'Formula1-Bold';
@@ -103,7 +103,7 @@
   </style>
 
 <img src={`${base}/F1.svg.png`} alt="F1 Logo" class="{logo ? 'center' : 'smaller'} absolute-center fade-in" in:fade={{ duration: 1000 }} out:fade={{ duration: 1000 }}/>
-{#if index >= 10}
+{#if index >= 8}
     <h class='{yearAnimation ? 'year' : 'yearsmaller'}' in:fade={{ duration: 800 }} out:fade={{ duration: 100 }}>
             2021
     </h>

@@ -72,14 +72,14 @@
     });
 }
 
-$: if (index === 22) {
+$: if (index === 20) {
     animator = true;
     console.log(22)
     animateLaps();
 } else {
     animator = false;
 }
-$: if (index === 23) {
+$: if (index === 21) {
     yeppers = true;
 } else {
     yeppers = false;

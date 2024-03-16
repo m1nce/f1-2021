@@ -65,7 +65,7 @@
         }, totalDelaySer);
     });
 }
-    $: if (index == 20) {
+    $: if (index == 18) {
         animator = true;
         animateLaps();
     } else {

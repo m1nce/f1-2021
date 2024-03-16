@@ -18,6 +18,7 @@
   // Initialize variables for ScrollyTeller
   let count, index, offset, progress;
   let width, height;
+  index = 0;
 
   onMount(() => {
     const style = document.createElement('style');
@@ -30,7 +31,7 @@
     document.head.appendChild(style);
   });
 
-  $: isYellowBackground = index > 23 && index <= 31;
+  $: isYellowBackground = index > 21 && index <= 29;
 </script>
 
 <style>
@@ -105,7 +106,6 @@
   </div>
 
   <div class='foreground' slot='foreground'>
-    <section></section>
     <section></section>
     <section></section>
     <section></section>

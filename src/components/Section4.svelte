@@ -57,19 +57,19 @@
 
     let final = false;
     // Reactivity for visibility based on index
-    $: h2 = index > 23 && index < 27;
-    $: Yup = index == 27;
-    $: Future = index >= 28 && index < 29;
-    $: s1 = index == 25;
-    $: s2 = index == 26;
-    $: s3 = index == 27;
-    $: s4 = index == 28;
-    $: s5 = index == 29;
-    $: hamilton = index == 29;
-    $: controversy = index == 30;
-    $: lastlap = index == 31;
-    $: reallast = index == 32;
-    $: if (index === 33) {
+    $: h2 = index > 21 && index < 25;
+    $: Yup = index == 25;
+    $: Future = index >= 26 && index < 27;
+    $: s1 = index == 23;
+    $: s2 = index == 24;
+    $: s3 = index == 25;
+    $: s4 = index == 26;
+    $: s5 = index == 27;
+    $: hamilton = index == 27;
+    $: controversy = index == 28;
+    $: lastlap = index == 29;
+    $: reallast = index == 30;
+    $: if (index === 31) {
         final = true;
     } else {
         final = false;
@@ -243,8 +243,8 @@
 
 {#if s3}
     <p class='description' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
-        During a safety car period, all cars are required to reduce speed and 
-        must not overtake each other on the track, ensuring safety. This 
+        During a safety car period, all cars are required to reduce speed and forbidden 
+        from overtaking each other on the track, ensuring safety. <br><br>This 
         slowdown often presents a strategic opportunity for teams to pit 
         and change tyres.
     </p>
@@ -253,11 +253,11 @@
 
 {#if s4}
     <p class='description' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
-        In this particular race, there was uncertainty whether 
-        the race would conclude under the safety car, which would freeze 
-        the positions and secure Hamilton's victory. In a strategic gamble, 
-        Verstappen pitted for fresh, faster tyres, betting on the chance of 
-        the safety car being withdrawn for at least one more racing lap.
+        In this race, there was a chance it might end under the safety car, 
+        locking the positions and ensuring Hamilton's win.
+        <br><br>
+        Verstappen took a risk by switching to new, quicker tyres, hoping for at 
+        least one more lap of active racing after the safety car leaves.
     </p>
     <img src='pit-stop.jpeg' alt='rb-pit-stop' class='below-img' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
 {/if}
@@ -286,11 +286,16 @@
 {/if}
 
 {#if controversy}
-    <p class='description' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
-        When Verstappen pitted, cars that were a lap behind Hamilton and Verstappen were in-between
-        their cars (Lap 56 rather than 57). Under normal procedures, all lapped cars would unlap
-        themselves. This procedure would give Hamilton an advantage as the race would end on the safety car, 
-        meaning he would automatically win. But in this race, only the cars between Verstappen and Hamilton were unlapped.
+    <p class='description' style='top: 37.5%' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
+        During Verstappen's pit stop, there were cars one lap behind him and Hamilton, 
+        sandwiched between them. 
+        <br><br>
+        Normally, all lapped cars would move ahead to rejoin the race pace, 
+        which could have ended the race under the safety car since the procedure 
+        would've taken too long, favoring Hamilton. 
+        <br><br>
+        However, in this case, only those lapped cars directly between Verstappen 
+        and Hamilton were allowed to unlap, altering the expected advantage for Hamilton.
     </p>
 {/if}
 

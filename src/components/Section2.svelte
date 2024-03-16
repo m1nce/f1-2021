@@ -43,14 +43,14 @@
   });
   
     // Reactivity for visibility based on index
-    $: h1= index >10 && index < 15;
-    $: s6 = index > 10 && index < 15;
-    $: p3 = index > 11 && index < 15;
-    $: p4 = index > 12 && index < 15;
-    $: s7 = index == 14;
-    $: s8 = index == 15;
-    $: s9 = index == 16;
-    $: s10 = index == 17;
+    $: h1= index > 8 && index < 13;
+    $: s6 = index > 8 && index < 13;
+    $: p3 = index > 9 && index < 13;
+    $: p4 = index > 10 && index < 13;
+    $: s7 = index == 12;
+    $: s8 = index == 13;
+    $: s9 = index == 14;
+    $: s10 = index == 15;
 </script>
 
 <style>
@@ -146,8 +146,8 @@
     .yasmarina {
         display: block;
         position: absolute;
-        margin-top: 50%;
-        margin-left: 23%;
+        margin-top: 60%;
+        margin-left: 25%;
         margin-right: auto;
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: 70%; /* Adjust width as needed */

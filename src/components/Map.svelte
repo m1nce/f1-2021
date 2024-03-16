@@ -62,13 +62,13 @@
 }
     // Reactivity for visibility based on index
     // !! CHANGE WHEN NEED CIRCUIT MAP!!
-    $: if (index == 18) {
+    $: if (index == 16) {
         animator = true;
         animateLaps();
     } else {
         animator = false;
     }
-    $: if (index == 15) {
+    $: if (index == 13) {
         topdown = true;
     } else {
         topdown = false;

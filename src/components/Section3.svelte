@@ -49,12 +49,12 @@
     ];
   
     // Reactivity for visibility based on index
-    $: s11 = index == 18;
-    $: s12 = index == 19;
-    $: s13 = index == 20;
-    $: s14 = index == 21;
-    $: s15 = index == 22 || index == 23;
-    $: s16 = index == 23;
+    $: s11 = index == 16;
+    $: s12 = index == 17;
+    $: s13 = index == 18;
+    $: s14 = index == 19;
+    $: s15 = index == 20 || index == 21;
+    $: s16 = index == 21;
   </script>
   
 <style>
@@ -171,7 +171,8 @@
 
 {#if s15}
     <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
-        Nicholas Latifi (dubbed Crashtifi by F1 fans) crashes into the barriers and prompts a safety car.
+        Nicholas Latifi (dubbed Crashtifi by F1 fans) crashes into the barriers while racing 
+        Mick Schumacher and prompts a safety car.
     </p>
     <div class="legend">
         {#each legends.slice(3,) as legend}

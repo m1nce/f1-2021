@@ -60,7 +60,7 @@
 }
     // Reactivity for visibility based on index
     // !! CHANGE WHEN NEED CIRCUIT MAP!!
-    $: if (index == 19) {
+    $: if (index == 17) {
         animator = true;
         animateLaps();
     } else {
@@ -70,11 +70,11 @@
   <style>
     .track-container {
         position: absolute; /* The parent container is set to position: relative */
-        top:5%;
-        margin-left:0%;
+        top: 5%;
+        margin-left: 0%;
         width:  100%/* width of your track image */;
         height: 100%/* height of your track image */;
-        }
+    }
   </style>
 
 {#if animator}

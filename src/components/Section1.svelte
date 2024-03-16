@@ -39,19 +39,14 @@
             window.removeEventListener('resize', handleResize);
         };
     });
-    onMount(() => {
-  });
   
     // Reactivity for visibility based on index
-    $: h1 = index > 0 && index < 9;
-    $: s1 = index > 1 && index < 5;
-    $: p1 = index > 2 && index < 5;
-    $: img1 = index == 3 || index == 4;
-    $: p2 = index > 3 && index < 5;
-    $: s2 = index == 5;
-    $: s3 = index == 6 || index == 7;
-    $: s4 = index == 7;
-    $: s5 = index == 8;
+    $: h1 = index > 0 && index < 7;
+    $: s1 = index == 2;
+    $: s2 = index == 3;
+    $: s3 = index == 4 || index == 5;
+    $: s4 = index == 5;
+    $: s5 = index == 6;
 </script>
 
 <style>
@@ -169,24 +164,15 @@
 
 {#if s1}
     <p class='subtitle1' in:fade={{ duration: 400 }} out:fade={{ duration: 100 }}>
-        Formula 1 is a motorsport with the highest class of international racing: 
+        Formula 1 is the highest class of international racing:
     </p>
-{/if}
-
-{#if p1}
-    <p class='paragraph1' in:fade={{ duration: 200 }} out:fade={{ duration: 100 }}>
+    <p class='paragraph1' in:fade={{ duration: 200, delay: 600}} out:fade={{ duration: 100 }}>
         &#x2022; Open Wheel
     </p>
-{/if}
-
-{#if img1}
-    <img src="openwheel.jpg" alt="open wheel car" class="right-img" in:fade={{ duration: 600 }} out:fade={{ duration: 100 }}>
-{/if}
-
-{#if p2}
-    <p class='paragraph2' in:fade={{ duration: 200 }} out:fade={{ duration: 100 }}>
+    <p class='paragraph2' in:fade={{ duration: 200, delay: 800 }} out:fade={{ duration: 100 }}>
         &#x2022; Single Seater
     </p>
+    <img src="openwheel.jpg" alt="open wheel car" class="right-img" in:fade={{ duration: 600, delay: 200 }} out:fade={{ duration: 100 }}>
 {/if}
 
 {#if s2}
