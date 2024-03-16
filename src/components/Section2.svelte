@@ -146,9 +146,8 @@
     .yasmarina {
         display: block;
         position: absolute;
-        margin-top: 60%;
-        margin-left: 25%;
-        margin-right: auto;
+        top:75%;
+        right:7%;
         transform: translate(-50%, -50%); /* Offset by half of the width and height */
         width: 70%; /* Adjust width as needed */
         height: auto; /* Maintains aspect ratio */

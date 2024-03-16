@@ -152,14 +152,30 @@
     .lap-number {
         
     }
+    .guideline {
+        display: block;
+        position: absolute;
+        top: 90%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Offset by half of the width and height */
+        width: 70%; /* Adjust width as needed */
+        height: auto; /* Maintains aspect ratio */
+        transition: opacity 2s;
+        text-align: center; /* Center text horizontally within the element */
+        font-size: 2.5vh;
+        font-family: 'Formula1-Regular'
+    }
 
 </style>
 
 {#if s11}
     <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
         However, at the start of the race, Hamilton got a better start than Verstappen, 
-        leading to Hamilton taking the lead instead of Verstappen.
+        leading to Hamilton taking the lead instead of Verstappen. <br>
     </p>
+    <p class='guideline' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
+    (Please wait until the animation finishes for the best user experience.)
+</p>
     <div class="legend">
         {#each legends.slice(0, 2) as legend}
             <div class="legend-entry">
@@ -179,6 +195,9 @@
     <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
         Max Verstappen pits for newer tyres, as each driver is mandated to have 
         at least one pit stop in a race.
+    </p>
+    <p class='guideline' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
+        (Please wait until the animation finishes for the best user experience.)
     </p>
     <div class="legend">
         {#each legends.slice(0, 2) as legend}
@@ -201,6 +220,9 @@
         by staying on old tyres that are losing grip. Verstappen's teammate, 
         Sergio Perez, takes 1<sup>st</sup> place.
     </p>
+    <p class='guideline' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
+        (Please wait until the animation finishes for the best user experience.)
+    </p>
     <div class="legend">
         {#each legends.slice(0, 3) as legend}
             <div class="legend-entry">
@@ -222,6 +244,9 @@
         However, Perez played the ultimate team game: defending long enough to bring 
         Verstappen back into the race.
     </p>
+    <p class='guideline' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
+        (Please wait until the animation finishes for the best user experience.)
+    </p>
     <div class="legend">
         {#each legends.slice(0, 3) as legend}
             <div class="legend-entry">
@@ -241,6 +266,9 @@
     <p class='description' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
         Nicholas Latifi (dubbed Crashtifi by F1 fans) crashes into the barriers while racing 
         Mick Schumacher and prompts a safety car.
+    </p>
+    <p class='guideline' style='top:85%' in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}>
+        (Please wait until the animation finishes for the best user experience.)
     </p>
     <div class="legend">
         {#each legends.slice(3,) as legend}

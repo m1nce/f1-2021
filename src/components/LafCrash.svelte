@@ -1,4 +1,5 @@
 <script>
+    import { csvParse } from 'd3';
     import { onMount } from 'svelte';
     export let index;
     import { fade } from 'svelte/transition';
@@ -81,9 +82,27 @@ $: if (index === 20) {
 }
 $: if (index === 21) {
     yeppers = true;
+    animateColor();
 } else {
     yeppers = false;
 }
+let color = 'silver'; // Initial color
+
+  // Function to animate color
+  function animateColor() {
+    // Change to red after 1 second
+    setTimeout(() => {
+      color = 'red';
+    }, 1000);
+
+    // Change to yellow after 2 seconds
+    setTimeout(() => {
+      color = 'yellow';
+    }, 2000);
+    setTimeout(() => {
+    animateColor(); // Recursively call to create an indefinite loop
+  }, 2000);
+  }
 </script>
   
 <style>
@@ -113,7 +132,7 @@ $: if (index === 21) {
     <div class="track-container">
         <svg class="track-container" viewBox="0 0 100 100">
             <path d={generatePathD(msclapData)} fill="none" stroke="grey" stroke-width="3" />
-            <circle cx={(31.1865)} cy={(51.9123)} r="1" fill="silver" in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}/>
+            <circle cx={(31.1865)} cy={(51.9123)} r="1" fill={color} in:fade={{ duration: 1000 }} out:fade={{ duration: 100 }}/>
           </svg>
       </div>
 {/if}

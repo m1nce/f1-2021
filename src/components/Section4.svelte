@@ -259,7 +259,7 @@
         Verstappen took a risk by switching to new, quicker tyres, hoping for at 
         least one more lap of active racing after the safety car leaves.
     </p>
-    <img src='pit-stop.jpeg' alt='rb-pit-stop' class='below-img' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
+    <img src='pit-stop.jpeg' alt='rb-pit-stop' class='below-img' style='top:50%' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
 {/if}
 
 {#if hamilton}
@@ -297,6 +297,7 @@
         However, in this case, only those lapped cars directly between Verstappen 
         and Hamilton were allowed to unlap, altering the expected advantage for Hamilton.
     </p>
+    <img src='safety.jpg' alt='maxbreathe' class='below-img' style='top: 57%' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
 {/if}
 
 {#if lastlap}
@@ -311,6 +312,7 @@
         Thus, the race began with Hamilton on old tyres with Verstappen breathing down his neck
         with new and fast tyres.
     </p>
+    <img src='breathing.png' alt='maxbreathe' class='below-img' in:fade={{ duration: 300 }} out:fade={{ duration: 100 }}>
 {/if}
 
 {#if reallast}
