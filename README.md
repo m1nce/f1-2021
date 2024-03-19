@@ -1,6 +1,6 @@
 <h1>
   <a href='https://m1nce.github.io/f1-2021/'>
-    f1-2021
+    f1-2021 🏎️
   </a>
 </h1>
 <p>
